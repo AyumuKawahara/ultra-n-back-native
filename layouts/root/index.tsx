@@ -1,5 +1,6 @@
 import { defaultConfig } from "@tamagui/config/v4";
 import { createTamagui, TamaguiProvider } from "@tamagui/core";
+import { PortalProvider } from "@tamagui/portal";
 import { Stack } from "expo-router";
 
 const config = createTamagui(defaultConfig);
@@ -13,7 +14,9 @@ declare module "@tamagui/core" {
 export const RootLayout = () => {
   return (
     <TamaguiProvider config={config}>
-      <Stack />
+      <PortalProvider>
+        <Stack />
+      </PortalProvider>
     </TamaguiProvider>
   );
 };

@@ -1,9 +1,3 @@
-import { Text, View } from "react-native";
+import { RootPage } from "@/features/root";
 
-export default function Index() {
-  return (
-    <View>
-      <Text>Edit app/index.tsx to edit thfdsis s</Text>
-    </View>
-  );
-}
+export default RootPage;
