@@ -13,7 +13,7 @@ declare module "@tamagui/core" {
 
 export const RootLayout = () => {
   return (
-    <TamaguiProvider config={config}>
+    <TamaguiProvider config={config} defaultTheme="dark">
       <PortalProvider>
         <Stack />
       </PortalProvider>

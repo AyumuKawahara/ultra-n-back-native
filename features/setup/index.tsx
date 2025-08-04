@@ -12,7 +12,10 @@ export const SetupPage = () => {
 
   const [numOfQuestions, setNumOfQuestions] = useState<number>(5);
   const [n, setN] = useState<number>(1);
-  const [selectedModes, setSelectedModes] = useState<Mode[]>([]);
+  const [selectedModes, setSelectedModes] = useState<Mode[]>([
+    "place",
+    "character",
+  ]);
 
   return (
     <View>
@@ -41,6 +44,7 @@ export const SetupPage = () => {
             params: {
               numOfQuestions,
               n,
+              selectedModes,
             },
           })
         }
