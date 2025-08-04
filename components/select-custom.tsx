@@ -1,10 +1,14 @@
 import type { SelectItem } from "@/types/select";
 import { Adapt, Select } from "tamagui";
 
-type Props = { items: SelectItem[] };
+type Props = {
+  items: SelectItem[];
+  value: string;
+  onChange: (value: string) => void;
+};
 
-export const SelectCustom = ({ items }: Props) => (
-  <Select defaultValue="">
+export const SelectCustom = ({ items, value, onChange }: Props) => (
+  <Select value={value} onValueChange={onChange}>
     <Select.Trigger>
       <Select.Value placeholder="Search…" />
     </Select.Trigger>

@@ -1,7 +1,15 @@
 import { SelectCustom } from "@/components/select-custom";
 
-export const SelectNumOfQuestions = () => {
-  const numOfQuestions = [
+type Props = {
+  numOfQuestions: number;
+  setNumOfQuestions: (numOfQuestions: number) => void;
+};
+
+export const SelectNumOfQuestions = ({
+  numOfQuestions,
+  setNumOfQuestions,
+}: Props) => {
+  const options = [
     { id: "5", label: "5" },
     { id: "10", label: "10" },
     { id: "15", label: "15" },
@@ -14,5 +22,11 @@ export const SelectNumOfQuestions = () => {
     { id: "50", label: "50" },
   ];
 
-  return <SelectCustom items={numOfQuestions} />;
+  return (
+    <SelectCustom
+      items={options}
+      value={numOfQuestions.toString()}
+      onChange={(value) => setNumOfQuestions(Number(value))}
+    />
+  );
 };
