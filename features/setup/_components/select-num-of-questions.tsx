@@ -1,23 +1,18 @@
-import { Select } from "tamagui";
+import { SelectCustom } from "@/components/select-custom";
 
-export const SelectNumOfQuestions = () => (
-  <Select defaultValue="">
-    <Select.Trigger>
-      <Select.Value placeholder="問題数を選択" />
-    </Select.Trigger>
-    <Select.FocusScope loop trapped focusOnIdle={true}>
-      <Select.Content>
-        <Select.ScrollUpButton />
-        <Select.Viewport>
-          <Select.Group>
-            <Select.Label />
-            <Select.Item value="10" index={0}>
-              <Select.ItemText>10</Select.ItemText>
-            </Select.Item>
-          </Select.Group>
-        </Select.Viewport>
-        <Select.ScrollDownButton />
-      </Select.Content>
-    </Select.FocusScope>
-  </Select>
-);
+export const SelectNumOfQuestions = () => {
+  const numOfQuestions = [
+    { id: "5", label: "5" },
+    { id: "10", label: "10" },
+    { id: "15", label: "15" },
+    { id: "20", label: "20" },
+    { id: "25", label: "25" },
+    { id: "30", label: "30" },
+    { id: "35", label: "35" },
+    { id: "40", label: "40" },
+    { id: "45", label: "45" },
+    { id: "50", label: "50" },
+  ];
+
+  return <SelectCustom items={numOfQuestions} />;
+};
