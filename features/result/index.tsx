@@ -1,13 +1,34 @@
-import { useRouter } from "expo-router";
-import { Text } from "react-native";
+import { useLocalSearchParams, useRouter } from "expo-router";
+import { Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Button } from "tamagui";
 
 export const ResultPage = () => {
   const router = useRouter();
+  const { n, numOfQuestions, numOfCorrectAnswers } = useLocalSearchParams<{
+    n: string;
+    numOfQuestions: string;
+    numOfCorrectAnswers: string;
+  }>();
+
+  const numOfCorrectAnswersRate =
+    (Number(numOfCorrectAnswers) / Number(numOfQuestions)) * 100;
 
   return (
     <SafeAreaView className="bg-background h-full px-4 pt-6 gap-y-4">
+      <Text className="text-white">プレイ結果！</Text>
+      <View>
+        <Text className="text-white">N： {n}</Text>
+        <Text className="text-white">
+          正解数：{numOfCorrectAnswers} / {numOfQuestions}
+        </Text>
+        <Text className="text-white">
+          正解率：{numOfCorrectAnswersRate.toFixed(1)}%
+        </Text>
+      </View>
+      <View>
+        <Text className="text-white">結果をシェアする</Text>
+      </View>
       <Button onPress={() => router.replace("/")}>
         <Text>ホームに戻る</Text>
       </Button>

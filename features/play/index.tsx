@@ -20,9 +20,13 @@ export const PlayPage = () => {
     numOfQuestions,
     n,
     selectedModes: selectedModesParam,
-  } = useLocalSearchParams();
+  } = useLocalSearchParams<{
+    numOfQuestions: string;
+    n: string;
+    selectedModes: string;
+  }>();
 
-  const selectedModes = (selectedModesParam as string).split(",") as Mode[];
+  const selectedModes = selectedModesParam.split(",") as Mode[];
 
   const [questionQueue, setQuestionQueue] = useState<Question[]>(
     generateInitialQuestionQueue(Number(n), selectedModes),
@@ -80,6 +84,7 @@ export const PlayPage = () => {
     setQuestionQueue,
     selectedModes,
     numOfQuestions: Number(numOfQuestions),
+    numOfCorrectAnswers,
     n: Number(n),
   });
 

@@ -11,6 +11,8 @@ module.exports = {
     extend: {
       colors: {
         background: "#25292E",
+        backgroundLight: "#2F3338",
+        vividBlue: "#1E90FF",
       },
     },
   },

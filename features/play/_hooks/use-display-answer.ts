@@ -16,6 +16,7 @@ type Props = {
   setQuestionQueue: (questionQueue: Question[]) => void;
   selectedModes: Mode[];
   numOfQuestions: number;
+  numOfCorrectAnswers: number;
   n: number;
 };
 
@@ -28,6 +29,7 @@ export const useDisplayAnswer = ({
   setQuestionQueue,
   selectedModes,
   numOfQuestions,
+  numOfCorrectAnswers,
   n,
 }: Props) => {
   const router = useRouter();
@@ -39,7 +41,14 @@ export const useDisplayAnswer = ({
       const interval = setInterval(() => {
         if (numOfDisplayedQuestions >= numOfQuestions) {
           setStatus("afterPlay");
-          router.replace("/result");
+          router.replace({
+            pathname: "/result",
+            params: {
+              n,
+              numOfQuestions,
+              numOfCorrectAnswers,
+            },
+          });
         } else {
           setStatus("displayQuestion");
           setNumOfDisplayedCharacters(numOfDisplayedCharacters + 1);
@@ -60,5 +69,7 @@ export const useDisplayAnswer = ({
     numOfQuestions,
     router,
     numOfDisplayedQuestions,
+    numOfCorrectAnswers,
+    n,
   ]);
 };
