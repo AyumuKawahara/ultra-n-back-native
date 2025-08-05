@@ -19,9 +19,15 @@ export const RootLayout = () => {
         <StatusBar style="light" />
         <Stack>
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-          <Stack.Screen name="setup" options={{ headerShown: false }} />
-          <Stack.Screen name="play" options={{ headerShown: false }} />
-          <Stack.Screen name="result" options={{ headerShown: false }} />
+          <Stack.Screen
+            name="setup/index"
+            options={{
+              headerStyle: { backgroundColor: "#25292E" },
+              headerTintColor: "#ffd33d",
+            }}
+          />
+          <Stack.Screen name="play/index" options={{ headerShown: false }} />
+          <Stack.Screen name="result/index" options={{ headerShown: false }} />
         </Stack>
       </PortalProvider>
     </TamaguiProvider>

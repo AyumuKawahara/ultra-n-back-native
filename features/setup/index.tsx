@@ -18,7 +18,7 @@ export const SetupPage = () => {
   ]);
 
   return (
-    <View>
+    <View className="bg-background h-full">
       <View className="flex-row items-center">
         <Text>問題数</Text>
         <SelectNumOfQuestions
