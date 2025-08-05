@@ -18,24 +18,35 @@ export const SetupPage = () => {
   ]);
 
   return (
-    <View className="bg-background h-full">
-      <View className="flex-row items-center">
-        <Text>問題数</Text>
-        <SelectNumOfQuestions
-          numOfQuestions={numOfQuestions}
-          setNumOfQuestions={setNumOfQuestions}
-        />
-      </View>
-      <View className="flex-row items-center">
-        <Text>N</Text>
-        <SelectN n={n} setN={setN} />
-      </View>
-      <View className="flex-row">
-        <Text>モード</Text>
-        <SelectMode
-          selectedModes={selectedModes}
-          setSelectedModes={setSelectedModes}
-        />
+    <View className="bg-background h-full px-4 pt-6 gap-y-8">
+      <Text className="text-white text-2xl font-bold text-center">
+        ゲーム設定
+      </Text>
+      <View className="gap-y-6">
+        <View className="flex-row items-center gap-x-2">
+          <Text className="text-white w-[72px] text-center">問題数</Text>
+          <View className="w-[250px]">
+            <SelectNumOfQuestions
+              numOfQuestions={numOfQuestions}
+              setNumOfQuestions={setNumOfQuestions}
+            />
+          </View>
+        </View>
+        <View className="flex-row items-center gap-x-2">
+          <Text className="text-white w-[72px] text-center">N</Text>
+          <View className="w-[250px]">
+            <SelectN n={n} setN={setN} />
+          </View>
+        </View>
+        <View className="flex-row gap-x-2">
+          <Text className="text-white w-[72px] text-center">モード</Text>
+          <View className="flex-1">
+            <SelectMode
+              selectedModes={selectedModes}
+              setSelectedModes={setSelectedModes}
+            />
+          </View>
+        </View>
       </View>
       <Button
         onPress={() =>
