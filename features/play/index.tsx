@@ -18,7 +18,7 @@ export const PlayPage = () => {
   const selectedModes = (selectedModesParam as string).split(",") as Mode[];
 
   const [questionQueue, setQuestionQueue] = useState<Question[]>(
-    generateInitialQuestionQueue(Number(n)),
+    generateInitialQuestionQueue(Number(n), selectedModes),
   );
   const [questionNumber, setQuestionNumber] = useState(1);
   const [numOfCorrectAnswers, setNumOfCorrectAnswers] = useState(0);
