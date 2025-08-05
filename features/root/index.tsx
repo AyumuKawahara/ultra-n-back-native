@@ -1,13 +1,13 @@
 import { useRouter } from "expo-router";
-import { View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import { Button } from "tamagui";
 
 export const RootPage = () => {
   const router = useRouter();
 
   return (
-    <View>
+    <SafeAreaView className="bg-background h-full">
       <Button onPress={() => router.push("/setup")}>ゲームをプレイする</Button>
-    </View>
+    </SafeAreaView>
   );
 };

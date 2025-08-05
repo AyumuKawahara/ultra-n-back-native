@@ -2,6 +2,7 @@ import { defaultConfig } from "@tamagui/config/v4";
 import { createTamagui, TamaguiProvider } from "@tamagui/core";
 import { PortalProvider } from "@tamagui/portal";
 import { Stack } from "expo-router";
+import { StatusBar } from "expo-status-bar";
 
 const config = createTamagui(defaultConfig);
 
@@ -13,9 +14,15 @@ declare module "@tamagui/core" {
 
 export const RootLayout = () => {
   return (
-    <TamaguiProvider config={config} defaultTheme="dark">
+    <TamaguiProvider config={config}>
       <PortalProvider>
-        <Stack />
+        <StatusBar style="light" />
+        <Stack>
+          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          <Stack.Screen name="setup" options={{ headerShown: false }} />
+          <Stack.Screen name="play" options={{ headerShown: false }} />
+          <Stack.Screen name="result" options={{ headerShown: false }} />
+        </Stack>
       </PortalProvider>
     </TamaguiProvider>
   );
