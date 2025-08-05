@@ -14,7 +14,7 @@ export const generateInitialQuestionQueue = (
   const isActiveColor = selectedModes.includes("color");
   const isActiveShape = selectedModes.includes("shape");
 
-  for (let i = 0; i < n; i++) {
+  for (let i = 0; i < n + 1; i++) {
     questionQueue.push({
       place: generateRandomIndex(),
       character: generateRandomAlphabet(),

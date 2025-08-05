@@ -8,7 +8,8 @@ import { DisplayQuestion } from "./_components/display-question";
 import { generateInitialQuestionQueue } from "./_helpers/generate-initial-question-queue/index";
 import { useAnswerQuestion } from "./_hooks/use-answer-question";
 import { useBeforePlay } from "./_hooks/use-before-play";
-import { useCheckAnswer } from "./_hooks/use-check-answer";
+import { useBetweenDisplayQuestion } from "./_hooks/use-between-display-question";
+import { useDisplayAnswer } from "./_hooks/use-display-answer";
 import { useDisplayQuestion } from "./_hooks/use-display-question";
 import type { Answer } from "./_types/answer";
 import type { Question } from "./_types/question";
@@ -32,19 +33,60 @@ export const PlayPage = () => {
     color: false,
     shape: false,
   });
-  const [questionNumber, setQuestionNumber] = useState(0);
+  const [isCorrectAnswer, setIsCorrectAnswer] = useState<Answer>({
+    place: false,
+    character: false,
+    color: false,
+    shape: false,
+  });
+  const [numOfDisplayedCharacters, setNumOfDisplayedCharacters] = useState(0);
   const [numOfCorrectAnswers, setNumOfCorrectAnswers] = useState(0);
   const [status, setStatus] = useState<Status>("beforePlay");
 
-  useBeforePlay({ setQuestionNumber, setStatus });
-  useDisplayQuestion({ setStatus, status });
-  useAnswerQuestion({ status });
-  useCheckAnswer({ status });
+  useBeforePlay({ setNumOfDisplayedCharacters, setStatus });
+
+  useDisplayQuestion({
+    setStatus,
+    status,
+    numOfDisplayedCharacters,
+    n: Number(n),
+  });
+  useBetweenDisplayQuestion({
+    setStatus,
+    status,
+    numOfDisplayedCharacters,
+    setNumOfDisplayedCharacters,
+    questionQueue,
+    setQuestionQueue,
+    selectedModes,
+  });
+  useAnswerQuestion({
+    status,
+    setStatus,
+    answer,
+    setAnswer,
+    setIsCorrectAnswer,
+    questionQueue,
+    numOfCorrectAnswers,
+    setNumOfCorrectAnswers,
+    selectedModes,
+  });
+  useDisplayAnswer({
+    status,
+    setStatus,
+    numOfDisplayedCharacters,
+    setNumOfDisplayedCharacters,
+    questionQueue,
+    setQuestionQueue,
+    selectedModes,
+    numOfQuestions: Number(numOfQuestions),
+    n: Number(n),
+  });
 
   return (
     <SafeAreaView className="bg-background h-full px-4 pt-6 gap-y-4">
       <CurrentGameStatus
-        questionNumber={questionNumber}
+        numOfDisplayedCharacters={numOfDisplayedCharacters}
         n={Number(n)}
         numOfQuestions={Number(numOfQuestions)}
         numOfCorrectAnswers={numOfCorrectAnswers}
@@ -54,6 +96,8 @@ export const PlayPage = () => {
         selectedModes={selectedModes}
         answer={answer}
         setAnswer={setAnswer}
+        status={status}
+        isCorrectAnswer={isCorrectAnswer}
       />
     </SafeAreaView>
   );

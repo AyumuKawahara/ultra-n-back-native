@@ -3,14 +3,23 @@ import type { Mode } from "@/types/mode";
 import { FlatList, Text, View } from "react-native";
 import { Button } from "tamagui";
 import type { Answer } from "../_types/answer";
+import type { Status } from "../_types/status";
 
 type Props = {
   selectedModes: Mode[];
   answer: Answer;
   setAnswer: (answer: Answer) => void;
+  status: Status;
+  isCorrectAnswer: Answer;
 };
 
-export const AnswerQuestion = ({ selectedModes, answer, setAnswer }: Props) => {
+export const AnswerQuestion = ({
+  selectedModes,
+  answer,
+  setAnswer,
+  status,
+  isCorrectAnswer,
+}: Props) => {
   const modeOptions = Object.entries(modeLabelMap).map(([key, value]) => ({
     value: key as Mode,
     label: value.label,
@@ -31,7 +40,14 @@ export const AnswerQuestion = ({ selectedModes, answer, setAnswer }: Props) => {
           <View className="flex-1">
             <Button
               style={{
-                backgroundColor: answer[item.value] ? "blue" : "white",
+                backgroundColor:
+                  status === "displayAnswer"
+                    ? isCorrectAnswer[item.value]
+                      ? "green"
+                      : "red"
+                    : answer[item.value]
+                      ? "blue"
+                      : "white",
               }}
               onPress={() => {
                 setAnswer({
@@ -40,9 +56,7 @@ export const AnswerQuestion = ({ selectedModes, answer, setAnswer }: Props) => {
                 });
               }}
             >
-              <Text style={{ color: answer[item.value] ? "white" : "black" }}>
-                {item.label}
-              </Text>
+              <Text>{item.label}</Text>
             </Button>
           </View>
         );

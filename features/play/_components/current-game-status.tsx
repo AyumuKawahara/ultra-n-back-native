@@ -1,14 +1,14 @@
 import { Text, View } from "react-native";
 
 type Props = {
-  questionNumber: number;
+  numOfDisplayedCharacters: number;
   n: number;
   numOfQuestions: number;
   numOfCorrectAnswers: number;
 };
 
 export const CurrentGameStatus = ({
-  questionNumber,
+  numOfDisplayedCharacters,
   n,
   numOfQuestions,
   numOfCorrectAnswers,
@@ -16,7 +16,7 @@ export const CurrentGameStatus = ({
   return (
     <View className="flex-row justify-between items-center">
       <Text className="text-white">
-        問題：{questionNumber} / {numOfQuestions}
+        問題：{Math.max(numOfDisplayedCharacters - n, 0)} / {numOfQuestions}
       </Text>
       <Text className="text-white">N：{n}</Text>
       <Text className="text-white">
