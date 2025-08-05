@@ -1,6 +1,11 @@
 import { FlatList, Text, View } from "react-native";
+import type { Question } from "../_types/question";
 
-export const DisplayQuestion = () => {
+type Props = {
+  question: Question;
+};
+
+export const DisplayQuestion = ({ question }: Props) => {
   const numbers = Array.from({ length: 9 }, (_, i) => i);
 
   return (
