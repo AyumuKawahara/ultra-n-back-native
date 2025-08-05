@@ -2,12 +2,15 @@ import { modeLabelMap } from "@/helpers/mode-label-map";
 import type { Mode } from "@/types/mode";
 import { FlatList, Text, View } from "react-native";
 import { Button } from "tamagui";
+import type { Answer } from "../_types/answer";
 
 type Props = {
   selectedModes: Mode[];
+  answer: Answer;
+  setAnswer: (answer: Answer) => void;
 };
 
-export const AnswerQuestion = ({ selectedModes }: Props) => {
+export const AnswerQuestion = ({ selectedModes, answer, setAnswer }: Props) => {
   const modeOptions = Object.entries(modeLabelMap).map(([key, value]) => ({
     value: key as Mode,
     label: value.label,
@@ -26,8 +29,20 @@ export const AnswerQuestion = ({ selectedModes }: Props) => {
 
         return (
           <View className="flex-1">
-            <Button style={{ backgroundColor: "white" }}>
-              <Text>{item.label}</Text>
+            <Button
+              style={{
+                backgroundColor: answer[item.value] ? "blue" : "white",
+              }}
+              onPress={() => {
+                setAnswer({
+                  ...answer,
+                  [item.value]: !answer[item.value],
+                });
+              }}
+            >
+              <Text style={{ color: answer[item.value] ? "white" : "black" }}>
+                {item.label}
+              </Text>
             </Button>
           </View>
         );
