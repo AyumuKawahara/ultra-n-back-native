@@ -1,4 +1,4 @@
 export const generateRandomAlphabet = (): string => {
-  const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  const alphabet = "ETAOI";
   return alphabet[Math.floor(Math.random() * alphabet.length)];
 };
