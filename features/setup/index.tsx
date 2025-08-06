@@ -55,14 +55,14 @@ export const SetupPage = () => {
                 color="white"
               />
               <Text className="text-white font-medium text-lg">
-                場所・色は選択必須です
+                場所・文字は選択必須です
               </Text>
             </View>
           </View>
         </View>
       </View>
       <TouchableHighlight
-        className="border rounded-xl py-7 items-center justify-center"
+        className="border rounded-2xl py-7 items-center justify-center"
         style={{
           backgroundColor: "#2F3338",
           borderColor: "#1E90FF",

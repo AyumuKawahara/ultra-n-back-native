@@ -1,6 +1,7 @@
 import type { Mode } from "@/types/mode";
 import { useLocalSearchParams } from "expo-router";
 import { useState } from "react";
+import { View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { AnswerQuestion } from "./_components/answer-question";
 import { CurrentGameStatus } from "./_components/current-game-status";
@@ -89,14 +90,16 @@ export const PlayPage = () => {
   });
 
   return (
-    <SafeAreaView className="bg-background h-full px-4 pt-6 gap-y-4">
-      <CurrentGameStatus
-        numOfDisplayedCharacters={numOfDisplayedCharacters}
-        n={Number(n)}
-        numOfQuestions={Number(numOfQuestions)}
-        numOfCorrectAnswers={numOfCorrectAnswers}
-      />
-      <DisplayQuestion question={questionQueue[0]} status={status} />
+    <SafeAreaView className="bg-background h-full px-4 pt-6 pb-6 gap-y-4">
+      <View className="gap-y-4 flex-1">
+        <CurrentGameStatus
+          numOfDisplayedCharacters={numOfDisplayedCharacters}
+          n={Number(n)}
+          numOfQuestions={Number(numOfQuestions)}
+          numOfCorrectAnswers={numOfCorrectAnswers}
+        />
+        <DisplayQuestion question={questionQueue[0]} status={status} />
+      </View>
       <AnswerQuestion
         selectedModes={selectedModes}
         answer={answer}

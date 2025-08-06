@@ -26,41 +26,50 @@ export const AnswerQuestion = ({
   }));
 
   return (
-    <FlatList
-      data={modeOptions}
-      numColumns={2}
-      columnWrapperClassName="gap-x-2"
-      contentContainerClassName="gap-y-2"
-      renderItem={({ item }) => {
-        const isSelected = selectedModes.includes(item.value);
+    <View>
+      <FlatList
+        data={modeOptions}
+        numColumns={2}
+        columnWrapperClassName="gap-x-3"
+        contentContainerClassName="gap-y-3"
+        renderItem={({ item }) => {
+          const isSelected = selectedModes.includes(item.value);
 
-        if (!isSelected) return <View className="flex-1" />;
+          if (!isSelected) return <View className="flex-1 h-20" />;
 
-        return (
-          <View className="flex-1">
-            <Button
-              style={{
-                backgroundColor:
-                  status === "displayAnswer"
-                    ? isCorrectAnswer[item.value]
-                      ? "green"
-                      : "red"
-                    : answer[item.value]
-                      ? "blue"
-                      : "white",
-              }}
-              onPress={() => {
-                setAnswer({
-                  ...answer,
-                  [item.value]: !answer[item.value],
-                });
-              }}
-            >
-              <Text>{item.label}</Text>
-            </Button>
-          </View>
-        );
-      }}
-    />
+          return (
+            <View className="flex-1">
+              <Button
+                borderColor="#1E90FF"
+                style={{
+                  backgroundColor:
+                    status === "displayAnswer"
+                      ? isCorrectAnswer[item.value]
+                        ? "green"
+                        : "red"
+                      : answer[item.value]
+                        ? "blue"
+                        : "#2F3338",
+                  height: 80,
+                }}
+                onPress={() => {
+                  setAnswer({
+                    ...answer,
+                    [item.value]: !answer[item.value],
+                  });
+                }}
+              >
+                <Text
+                  className="text-2xl font-bold"
+                  style={{ color: "#1E90FF" }}
+                >
+                  {item.label}
+                </Text>
+              </Button>
+            </View>
+          );
+        }}
+      />
+    </View>
   );
 };

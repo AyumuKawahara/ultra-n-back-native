@@ -34,7 +34,7 @@ export const SelectCustom = ({ items, value, onChange }: Props) => (
     <Select.Content>
       <Select.ScrollUpButton />
       <Select.Viewport>
-        <Select.Group>
+        <Select.Group style={{ paddingBottom: 20 }}>
           {items.map((item, i) => {
             const isActive = value === item.id;
 

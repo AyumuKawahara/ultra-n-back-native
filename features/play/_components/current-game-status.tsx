@@ -15,11 +15,11 @@ export const CurrentGameStatus = ({
 }: Props) => {
   return (
     <View className="flex-row justify-between items-center">
-      <Text className="text-white">
+      <Text className="text-white text-lg">
         問題：{Math.max(numOfDisplayedCharacters - n, 0)} / {numOfQuestions}
       </Text>
-      <Text className="text-white">N：{n}</Text>
-      <Text className="text-white">
+      <Text className="text-white text-lg">N：{n}</Text>
+      <Text className="text-white text-lg">
         正解数：{numOfCorrectAnswers} / {numOfQuestions}
       </Text>
     </View>
