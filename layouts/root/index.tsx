@@ -22,8 +22,9 @@ export const RootLayout = () => {
           <Stack.Screen
             name="setup/index"
             options={{
-              headerStyle: { backgroundColor: "#25292E" },
-              headerTintColor: "#ffd33d",
+              title: "ゲーム設定",
+              headerStyle: { backgroundColor: "#1A1D21" },
+              headerTintColor: "#1E90FF",
             }}
           />
           <Stack.Screen name="play/index" options={{ headerShown: false }} />

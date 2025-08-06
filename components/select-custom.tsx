@@ -1,4 +1,5 @@
 import type { SelectItem } from "@/types/select";
+import { Ionicons } from "@expo/vector-icons";
 import { Adapt, Select } from "tamagui";
 
 type Props = {
@@ -9,8 +10,11 @@ type Props = {
 
 export const SelectCustom = ({ items, value, onChange }: Props) => (
   <Select value={value} onValueChange={onChange}>
-    <Select.Trigger>
-      <Select.Value placeholder="Search…" />
+    <Select.Trigger height={75} backgroundColor="#2F3338" borderColor="#1E90FF">
+      <Select.Value placeholder="Search…" color="#1E90FF" fontSize={18} />
+      <Select.Icon>
+        <Ionicons name="chevron-down" size={20} color="#1E90FF" />
+      </Select.Icon>
     </Select.Trigger>
 
     <Adapt platform="touch">

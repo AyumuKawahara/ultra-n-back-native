@@ -1,7 +1,6 @@
 import { modeLabelMap } from "@/helpers/mode-label-map";
 import type { Mode } from "@/types/mode";
-import { FlatList, Text } from "react-native";
-import { Button } from "tamagui";
+import { FlatList, Text, TouchableHighlight } from "react-native";
 
 type Props = {
   selectedModes: Mode[];
@@ -19,13 +18,14 @@ export const SelectMode = ({ selectedModes, setSelectedModes }: Props) => {
     <FlatList
       data={modeOptions}
       numColumns={2}
-      columnWrapperClassName="gap-x-2"
-      contentContainerClassName="gap-y-2"
+      columnWrapperClassName="gap-x-3"
+      contentContainerClassName="gap-y-3"
       renderItem={({ item }) => {
         const isSelected = selectedModes.includes(item.value);
 
         return (
-          <Button
+          <TouchableHighlight
+            className="border py-7 flex-1 rounded-xl justify-center items-center"
             onPress={() => {
               if (isSelected) {
                 if (!item.required) {
@@ -37,15 +37,19 @@ export const SelectMode = ({ selectedModes, setSelectedModes }: Props) => {
                 setSelectedModes([...selectedModes, item.value]);
               }
             }}
-            flex={1}
             style={{
-              backgroundColor: isSelected ? "blue" : "white",
+              borderColor: "#1E90FF",
+              backgroundColor: isSelected ? "#1E90FF" : "#2F3338",
+              opacity: isSelected ? 1 : 0.8,
             }}
           >
-            <Text style={{ color: isSelected ? "white" : "black" }}>
+            <Text
+              className="font-bold text-xl"
+              style={{ color: isSelected ? "white" : "#1E90FF" }}
+            >
               {item.label}
             </Text>
-          </Button>
+          </TouchableHighlight>
         );
       }}
     />
