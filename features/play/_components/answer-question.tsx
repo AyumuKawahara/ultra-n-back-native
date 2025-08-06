@@ -40,19 +40,24 @@ export const AnswerQuestion = ({
           return (
             <View className="flex-1">
               <Button
-                borderColor="#1E90FF"
+                borderColor={
+                  status === "displayAnswer"
+                    ? isCorrectAnswer[item.value]
+                      ? "#2ECC71"
+                      : "#FF4C4C"
+                    : "#1E90FF"
+                }
                 style={{
                   backgroundColor:
                     status === "displayAnswer"
-                      ? isCorrectAnswer[item.value]
-                        ? "green"
-                        : "red"
+                      ? "#2F3338"
                       : answer[item.value]
-                        ? "blue"
+                        ? "#1E90FF"
                         : "#2F3338",
                   height: 80,
                 }}
                 onPress={() => {
+                  if (status === "displayAnswer") return;
                   setAnswer({
                     ...answer,
                     [item.value]: !answer[item.value],
@@ -61,7 +66,16 @@ export const AnswerQuestion = ({
               >
                 <Text
                   className="text-2xl font-bold"
-                  style={{ color: "#1E90FF" }}
+                  style={{
+                    color:
+                      status === "displayAnswer"
+                        ? isCorrectAnswer[item.value]
+                          ? "#2ECC71"
+                          : "#FF4C4C"
+                        : answer[item.value]
+                          ? "white"
+                          : "#1E90FF",
+                  }}
                 >
                   {item.label}
                 </Text>

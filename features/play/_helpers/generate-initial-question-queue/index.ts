@@ -18,7 +18,7 @@ export const generateInitialQuestionQueue = (
     questionQueue.push({
       place: generateRandomIndex(),
       character: generateRandomAlphabet(),
-      color: isActiveColor ? generateRandomColor() : "blue",
+      color: isActiveColor ? generateRandomColor() : "#1E90FF",
       shape: isActiveShape ? generateRandomShape() : "square",
     });
   }

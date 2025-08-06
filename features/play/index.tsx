@@ -90,8 +90,8 @@ export const PlayPage = () => {
   });
 
   return (
-    <SafeAreaView className="bg-background h-full px-4 pt-6 pb-6 gap-y-4">
-      <View className="gap-y-4 flex-1">
+    <SafeAreaView className="bg-background h-full px-4 pt-6 pb-12 gap-y-4">
+      <View className="gap-y-6 flex-1">
         <CurrentGameStatus
           numOfDisplayedCharacters={numOfDisplayedCharacters}
           n={Number(n)}
