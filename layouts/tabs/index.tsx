@@ -26,16 +26,25 @@ export const TabsLayout = () => {
       <Tabs.Screen
         name="stats/index"
         options={{
-          title: "統計",
+          title: "成長",
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="stats-chart" color={color} size={size} />
           ),
         }}
       />
       <Tabs.Screen
-        name="settings/index"
+        name="rankings/index"
         options={{
-          title: "設定",
+          title: "ランキング",
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="trophy" color={color} size={size} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="others/index"
+        options={{
+          title: "その他",
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="settings" color={color} size={size} />
           ),
