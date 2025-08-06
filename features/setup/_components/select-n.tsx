@@ -6,13 +6,10 @@ type Props = {
 };
 
 export const SelectN = ({ n, setN }: Props) => {
-  const options = [
-    { id: "1", label: "1" },
-    { id: "2", label: "2" },
-    { id: "3", label: "3" },
-    { id: "4", label: "4" },
-    { id: "5", label: "5" },
-  ];
+  const options = Array.from({ length: 100 }, (_, i) => ({
+    id: `${i + 1}`,
+    label: `${i + 1}`,
+  }));
 
   return (
     <SelectCustom

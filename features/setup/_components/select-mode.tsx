@@ -1,6 +1,6 @@
 import { modeLabelMap } from "@/helpers/mode-label-map";
 import type { Mode } from "@/types/mode";
-import { FlatList, Text, TouchableHighlight } from "react-native";
+import { FlatList, Text, TouchableOpacity } from "react-native";
 
 type Props = {
   selectedModes: Mode[];
@@ -24,7 +24,7 @@ export const SelectMode = ({ selectedModes, setSelectedModes }: Props) => {
         const isSelected = selectedModes.includes(item.value);
 
         return (
-          <TouchableHighlight
+          <TouchableOpacity
             className="border py-7 flex-1 rounded-xl justify-center items-center"
             onPress={() => {
               if (isSelected) {
@@ -49,7 +49,7 @@ export const SelectMode = ({ selectedModes, setSelectedModes }: Props) => {
             >
               {item.label}
             </Text>
-          </TouchableHighlight>
+          </TouchableOpacity>
         );
       }}
     />

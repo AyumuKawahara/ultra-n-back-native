@@ -14,6 +14,7 @@ module.exports = {
         background: "#25292E",
         backgroundLight: "#2F3338",
         vividBlue: "#1E90FF",
+        darkBlue: "#1E3A8A",
       },
     },
   },
