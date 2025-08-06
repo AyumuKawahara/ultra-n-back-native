@@ -1,7 +1,8 @@
 import type { Mode } from "@/types/mode";
 import { Ionicons } from "@expo/vector-icons";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useRouter } from "expo-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Text, TouchableHighlight, View } from "react-native";
 import { SelectMode } from "./_components/select-mode";
 import { SelectN } from "./_components/select-n";
@@ -16,6 +17,24 @@ export const SetupPage = () => {
     "place",
     "character",
   ]);
+
+  useEffect(() => {
+    AsyncStorage.getItem("numOfQuestions").then((numOfQuestions) => {
+      if (numOfQuestions) {
+        setNumOfQuestions(Number(numOfQuestions));
+      }
+    });
+    AsyncStorage.getItem("n").then((n) => {
+      if (n) {
+        setN(Number(n));
+      }
+    });
+    AsyncStorage.getItem("selectedModes").then((selectedModes) => {
+      if (selectedModes) {
+        setSelectedModes(JSON.parse(selectedModes));
+      }
+    });
+  }, []);
 
   return (
     <View className="bg-background h-full px-4 pt-10 pb-24 gap-y-8 justify-between">
@@ -67,7 +86,7 @@ export const SetupPage = () => {
           backgroundColor: "#2F3338",
           borderColor: "#1E90FF",
         }}
-        onPress={() =>
+        onPress={() => {
           router.push({
             pathname: "/play",
             params: {
@@ -75,8 +94,11 @@ export const SetupPage = () => {
               n,
               selectedModes,
             },
-          })
-        }
+          });
+          AsyncStorage.setItem("numOfQuestions", numOfQuestions.toString());
+          AsyncStorage.setItem("n", n.toString());
+          AsyncStorage.setItem("selectedModes", JSON.stringify(selectedModes));
+        }}
       >
         <Text className="text-2xl font-bold" style={{ color: "#1E90FF" }}>
           Start
