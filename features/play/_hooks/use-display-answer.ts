@@ -56,7 +56,7 @@ export const useDisplayAnswer = ({
         } else {
           setStatus("displayQuestion");
           setNumOfDisplayedCharacters(numOfDisplayedCharacters + 1);
-          setHistoryQueue([...historyQueue, currentQuestion]);
+          setHistoryQueue([...historyQueue.slice(1), currentQuestion]);
           setCurrentQuestion(generateQuestion(selectedModes));
         }
       }, INTERVAL_DISPLAY_ANSWER_MS);
