@@ -1,5 +1,5 @@
 import { Link } from "expo-router";
-import { Text, TouchableHighlight, View } from "react-native";
+import { Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export const RootPage = () => {
@@ -13,18 +13,18 @@ export const RootPage = () => {
       </View>
       <View className="gap-y-4">
         <Link href="/setup" asChild>
-          <TouchableHighlight className="border border-vividBlue rounded-xl py-7 bg-backgroundLight">
+          <TouchableOpacity className="border border-vividBlue rounded-xl py-7 bg-backgroundLight">
             <Text className="font-extrabold text-2xl text-center text-vividBlue">
               プレイする
             </Text>
-          </TouchableHighlight>
+          </TouchableOpacity>
         </Link>
         <Link href="/how-to-play" asChild>
-          <TouchableHighlight className="border border-vividBlue rounded-xl py-7 bg-backgroundLight">
+          <TouchableOpacity className="border border-vividBlue rounded-xl py-7 bg-backgroundLight">
             <Text className="font-extrabold text-2xl text-center text-vividBlue">
               あそびかた
             </Text>
-          </TouchableHighlight>
+          </TouchableOpacity>
         </Link>
       </View>
     </SafeAreaView>

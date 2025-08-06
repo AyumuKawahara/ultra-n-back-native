@@ -1,3 +1,4 @@
+import { Ionicons } from "@expo/vector-icons";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import { Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -16,7 +17,7 @@ export const ResultPage = () => {
 
   return (
     <SafeAreaView className="bg-background h-full px-4 pt-6 gap-y-4">
-      <Text className="text-white">プレイ結果！</Text>
+      <Text className="text-white text-3xl font-bold">プレイ結果！</Text>
       <View>
         <Text className="text-white">N： {n}</Text>
         <Text className="text-white">
@@ -29,8 +30,18 @@ export const ResultPage = () => {
       <View>
         <Text className="text-white">結果をシェアする</Text>
       </View>
-      <Button onPress={() => router.replace("/")}>
-        <Text>ホームに戻る</Text>
+      <Button
+        onPress={() => router.replace("/")}
+        height={70}
+        borderColor="#1E90FF"
+        style={{
+          backgroundColor: "#2F3338",
+        }}
+      >
+        <Ionicons name="arrow-back" size={24} color="#1E90FF" />
+        <Text className="text-2xl font-bold" style={{ color: "#1E90FF" }}>
+          ホームに戻る
+        </Text>
       </Button>
     </SafeAreaView>
   );

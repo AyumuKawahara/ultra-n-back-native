@@ -3,7 +3,7 @@ import { Ionicons } from "@expo/vector-icons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useRouter } from "expo-router";
 import { useEffect, useState } from "react";
-import { Text, TouchableHighlight, View } from "react-native";
+import { Text, TouchableOpacity, View } from "react-native";
 import { SelectMode } from "./_components/select-mode";
 import { SelectN } from "./_components/select-n";
 import { SelectNumOfQuestions } from "./_components/select-num-of-questions";
@@ -80,7 +80,7 @@ export const SetupPage = () => {
           </View>
         </View>
       </View>
-      <TouchableHighlight
+      <TouchableOpacity
         className="border rounded-2xl py-7 items-center justify-center"
         style={{
           backgroundColor: "#2F3338",
@@ -103,7 +103,7 @@ export const SetupPage = () => {
         <Text className="text-2xl font-bold" style={{ color: "#1E90FF" }}>
           Start
         </Text>
-      </TouchableHighlight>
+      </TouchableOpacity>
     </View>
   );
 };
