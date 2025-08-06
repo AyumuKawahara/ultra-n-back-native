@@ -11,6 +11,8 @@ type Props = {
   setAnswer: (answer: Answer) => void;
   status: Status;
   isCorrectAnswer: Answer;
+  numOfDisplayedCharacters: number;
+  n: number;
 };
 
 export const AnswerQuestion = ({
@@ -19,6 +21,8 @@ export const AnswerQuestion = ({
   setAnswer,
   status,
   isCorrectAnswer,
+  numOfDisplayedCharacters,
+  n,
 }: Props) => {
   const modeOptions = Object.entries(modeLabelMap).map(([key, value]) => ({
     value: key as Mode,
@@ -36,6 +40,8 @@ export const AnswerQuestion = ({
           const isSelected = selectedModes.includes(item.value);
 
           if (!isSelected) return <View className="flex-1 h-20" />;
+
+          const isBeforeQuestion = numOfDisplayedCharacters <= n;
 
           return (
             <View className="flex-1">
@@ -55,9 +61,10 @@ export const AnswerQuestion = ({
                         ? "#1E90FF"
                         : "#2F3338",
                   height: 80,
+                  opacity: isBeforeQuestion ? 0.6 : 1,
                 }}
                 onPress={() => {
-                  if (status === "displayAnswer") return;
+                  if (status === "displayAnswer" || isBeforeQuestion) return;
                   setAnswer({
                     ...answer,
                     [item.value]: !answer[item.value],

@@ -55,7 +55,7 @@ export const SetupPage = () => {
                 color="white"
               />
               <Text className="text-white font-medium text-lg">
-                場所・文字は選択必須です
+                場所・文字は必須です
               </Text>
             </View>
           </View>

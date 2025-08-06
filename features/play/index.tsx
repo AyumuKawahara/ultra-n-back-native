@@ -6,7 +6,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { AnswerQuestion } from "./_components/answer-question";
 import { CurrentGameStatus } from "./_components/current-game-status";
 import { DisplayQuestion } from "./_components/display-question";
-import { generateInitialQuestionQueue } from "./_helpers/generate-initial-question-queue/index";
+import { generateQuestion } from "./_helpers/generate-question";
 import { useAnswerQuestion } from "./_hooks/use-answer-question";
 import { useBeforePlay } from "./_hooks/use-before-play";
 import { useBetweenDisplayQuestion } from "./_hooks/use-between-display-question";
@@ -29,8 +29,9 @@ export const PlayPage = () => {
 
   const selectedModes = selectedModesParam.split(",") as Mode[];
 
-  const [questionQueue, setQuestionQueue] = useState<Question[]>(
-    generateInitialQuestionQueue(Number(n), selectedModes),
+  const [historyQueue, setHistoryQueue] = useState<Question[]>([]);
+  const [currentQuestion, setCurrentQuestion] = useState<Question>(
+    generateQuestion(selectedModes),
   );
   const [answer, setAnswer] = useState<Answer>({
     place: false,
@@ -61,8 +62,10 @@ export const PlayPage = () => {
     status,
     numOfDisplayedCharacters,
     setNumOfDisplayedCharacters,
-    questionQueue,
-    setQuestionQueue,
+    currentQuestion,
+    setCurrentQuestion,
+    historyQueue,
+    setHistoryQueue,
     selectedModes,
   });
   useAnswerQuestion({
@@ -70,8 +73,9 @@ export const PlayPage = () => {
     setStatus,
     answer,
     setAnswer,
+    currentQuestion,
     setIsCorrectAnswer,
-    questionQueue,
+    historyQueue,
     numOfCorrectAnswers,
     setNumOfCorrectAnswers,
     selectedModes,
@@ -81,12 +85,14 @@ export const PlayPage = () => {
     setStatus,
     numOfDisplayedCharacters,
     setNumOfDisplayedCharacters,
-    questionQueue,
-    setQuestionQueue,
-    selectedModes,
+    currentQuestion,
+    setCurrentQuestion,
     numOfQuestions: Number(numOfQuestions),
     numOfCorrectAnswers,
     n: Number(n),
+    historyQueue,
+    setHistoryQueue,
+    selectedModes,
   });
 
   return (
@@ -98,7 +104,7 @@ export const PlayPage = () => {
           numOfQuestions={Number(numOfQuestions)}
           numOfCorrectAnswers={numOfCorrectAnswers}
         />
-        <DisplayQuestion question={questionQueue[0]} status={status} />
+        <DisplayQuestion question={currentQuestion} status={status} />
       </View>
       <AnswerQuestion
         selectedModes={selectedModes}
@@ -106,6 +112,8 @@ export const PlayPage = () => {
         setAnswer={setAnswer}
         status={status}
         isCorrectAnswer={isCorrectAnswer}
+        numOfDisplayedCharacters={numOfDisplayedCharacters}
+        n={Number(n)}
       />
     </SafeAreaView>
   );

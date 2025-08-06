@@ -1,7 +1,7 @@
 import type { Mode } from "@/types/mode";
 import { useRouter } from "expo-router";
 import { useEffect } from "react";
-import { generateNextQueue } from "../_helpers/generate-next-queue";
+import { generateQuestion } from "../_helpers/generate-question";
 import type { Question } from "../_types/question";
 import type { Status } from "../_types/status";
 
@@ -12,8 +12,10 @@ type Props = {
   setStatus: (status: Status) => void;
   numOfDisplayedCharacters: number;
   setNumOfDisplayedCharacters: (numOfDisplayedCharacters: number) => void;
-  questionQueue: Question[];
-  setQuestionQueue: (questionQueue: Question[]) => void;
+  setCurrentQuestion: (currentQuestion: Question) => void;
+  currentQuestion: Question;
+  historyQueue: Question[];
+  setHistoryQueue: (historyQueue: Question[]) => void;
   selectedModes: Mode[];
   numOfQuestions: number;
   numOfCorrectAnswers: number;
@@ -25,8 +27,10 @@ export const useDisplayAnswer = ({
   setStatus,
   numOfDisplayedCharacters,
   setNumOfDisplayedCharacters,
-  questionQueue,
-  setQuestionQueue,
+  setCurrentQuestion,
+  currentQuestion,
+  historyQueue,
+  setHistoryQueue,
   selectedModes,
   numOfQuestions,
   numOfCorrectAnswers,
@@ -52,7 +56,8 @@ export const useDisplayAnswer = ({
         } else {
           setStatus("displayQuestion");
           setNumOfDisplayedCharacters(numOfDisplayedCharacters + 1);
-          setQuestionQueue(generateNextQueue(questionQueue, selectedModes));
+          setHistoryQueue([...historyQueue, currentQuestion]);
+          setCurrentQuestion(generateQuestion(selectedModes));
         }
       }, INTERVAL_DISPLAY_ANSWER_MS);
 
@@ -63,13 +68,15 @@ export const useDisplayAnswer = ({
     setStatus,
     numOfDisplayedCharacters,
     setNumOfDisplayedCharacters,
-    questionQueue,
-    selectedModes,
-    setQuestionQueue,
+    currentQuestion,
+    historyQueue,
+    setHistoryQueue,
     numOfQuestions,
     router,
     numOfDisplayedQuestions,
     numOfCorrectAnswers,
     n,
+    setCurrentQuestion,
+    selectedModes,
   ]);
 };

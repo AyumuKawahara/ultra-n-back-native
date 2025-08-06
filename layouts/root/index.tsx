@@ -18,7 +18,10 @@ export const RootLayout = () => {
       <PortalProvider>
         <StatusBar style="light" />
         <Stack>
-          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          <Stack.Screen
+            name="(tabs)"
+            options={{ title: "ホーム", headerShown: false }}
+          />
           <Stack.Screen
             name="setup/index"
             options={{

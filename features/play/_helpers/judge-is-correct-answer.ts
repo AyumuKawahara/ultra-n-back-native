@@ -4,14 +4,14 @@ import type { Question } from "../_types/question";
 
 export const judgeIsCorrectAnswer = (
   answer: Answer,
-  questionQueue: Question[],
   setIsCorrectAnswer: (isCorrectAnswer: Answer) => void,
+  currentQuestion: Question,
+  historyQueue: Question[],
   numOfCorrectAnswers: number,
   setNumOfCorrectAnswers: (numOfCorrectAnswers: number) => void,
   selectedModes: Mode[],
 ) => {
-  const currentQuestion = questionQueue[0];
-  const nBackQuestion = questionQueue[questionQueue.length - 1];
+  const nBackQuestion = historyQueue[0];
 
   const placeActualValue = currentQuestion.place === nBackQuestion.place;
   const characterActualValue =

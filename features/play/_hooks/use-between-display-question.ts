@@ -1,6 +1,6 @@
 import type { Mode } from "@/types/mode";
 import { useEffect } from "react";
-import { generateNextQueue } from "../_helpers/generate-next-queue";
+import { generateQuestion } from "../_helpers/generate-question";
 import type { Question } from "../_types/question";
 import type { Status } from "../_types/status";
 import { INTERVAL_ANSWER_QUESTION_MS } from "./use-answer-question";
@@ -14,23 +14,28 @@ export const useBetweenDisplayQuestion = ({
   setStatus,
   numOfDisplayedCharacters,
   setNumOfDisplayedCharacters,
-  questionQueue,
-  setQuestionQueue,
+  currentQuestion,
+  setCurrentQuestion,
+  historyQueue,
+  setHistoryQueue,
   selectedModes,
 }: {
   status: Status;
   setStatus: (status: Status) => void;
   numOfDisplayedCharacters: number;
   setNumOfDisplayedCharacters: (numOfDisplayedCharacters: number) => void;
-  questionQueue: Question[];
-  setQuestionQueue: (questionQueue: Question[]) => void;
+  currentQuestion: Question;
+  setCurrentQuestion: (currentQuestion: Question) => void;
+  historyQueue: Question[];
+  setHistoryQueue: (historyQueue: Question[]) => void;
   selectedModes: Mode[];
 }) => {
   useEffect(() => {
     if (status === "betweenDisplayQuestion") {
       const interval = setInterval(() => {
         setNumOfDisplayedCharacters(numOfDisplayedCharacters + 1);
-        setQuestionQueue(generateNextQueue(questionQueue, selectedModes));
+        setCurrentQuestion(generateQuestion(selectedModes));
+        setHistoryQueue([...historyQueue, currentQuestion]);
         setStatus("displayQuestion");
       }, INTERVAL_BETWEEN_DISPLAY_QUESTION_MS);
 
@@ -41,8 +46,10 @@ export const useBetweenDisplayQuestion = ({
     setStatus,
     numOfDisplayedCharacters,
     setNumOfDisplayedCharacters,
-    questionQueue,
-    setQuestionQueue,
+    currentQuestion,
+    setCurrentQuestion,
+    historyQueue,
+    setHistoryQueue,
     selectedModes,
   ]);
 };

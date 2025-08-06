@@ -12,7 +12,8 @@ type Props = {
   setStatus: (status: Status) => void;
   answer: Answer;
   setAnswer: (answer: Answer) => void;
-  questionQueue: Question[];
+  currentQuestion: Question;
+  historyQueue: Question[];
   setIsCorrectAnswer: (isCorrectAnswer: Answer) => void;
   numOfCorrectAnswers: number;
   setNumOfCorrectAnswers: (numOfCorrectAnswers: number) => void;
@@ -24,7 +25,8 @@ export const useAnswerQuestion = ({
   setStatus,
   answer,
   setAnswer,
-  questionQueue,
+  currentQuestion,
+  historyQueue,
   setIsCorrectAnswer,
   numOfCorrectAnswers,
   setNumOfCorrectAnswers,
@@ -41,8 +43,9 @@ export const useAnswerQuestion = ({
         });
         judgeIsCorrectAnswer(
           answer,
-          questionQueue,
           setIsCorrectAnswer,
+          currentQuestion,
+          historyQueue,
           numOfCorrectAnswers,
           setNumOfCorrectAnswers,
           selectedModes,
@@ -57,7 +60,8 @@ export const useAnswerQuestion = ({
     setStatus,
     setAnswer,
     setIsCorrectAnswer,
-    questionQueue,
+    currentQuestion,
+    historyQueue,
     answer,
     numOfCorrectAnswers,
     setNumOfCorrectAnswers,
