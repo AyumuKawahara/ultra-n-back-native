@@ -51,6 +51,7 @@ export const useDisplayAnswer = ({
               n,
               numOfQuestions,
               numOfCorrectAnswers,
+              selectedModes,
             },
           });
         } else {
