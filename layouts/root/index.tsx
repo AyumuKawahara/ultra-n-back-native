@@ -1,7 +1,8 @@
+import { Ionicons } from "@expo/vector-icons";
 import { defaultConfig } from "@tamagui/config/v4";
 import { createTamagui, TamaguiProvider } from "@tamagui/core";
 import { PortalProvider } from "@tamagui/portal";
-import { Stack } from "expo-router";
+import { Tabs } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 
 const config = createTamagui(defaultConfig);
@@ -17,34 +18,54 @@ export const RootLayout = () => {
     <TamaguiProvider config={config}>
       <PortalProvider>
         <StatusBar style="light" />
-        <Stack>
-          <Stack.Screen
-            name="(tabs)"
-            options={{ title: "ホーム", headerShown: false }}
-          />
-          <Stack.Screen
-            name="setup/index"
+        <Tabs
+          screenOptions={{
+            headerShown: false,
+            tabBarActiveTintColor: "#1E90FF",
+            tabBarStyle: {
+              borderTopWidth: 1,
+              borderColor: "#1E90FF",
+              backgroundColor: "#1A1D21",
+            },
+          }}
+        >
+          <Tabs.Screen
+            name="(home-stack)"
             options={{
-              title: "ゲーム設定",
-              headerStyle: { backgroundColor: "#1A1D21" },
-              headerTintColor: "#1E90FF",
+              title: "ホーム",
+              tabBarIcon: ({ color, size }) => (
+                <Ionicons name="home" color={color} size={size} />
+              ),
             }}
           />
-          <Stack.Screen
-            name="how-to-play/index"
+          <Tabs.Screen
+            name="stats/index"
             options={{
-              title: "あそびかた",
-              headerStyle: { backgroundColor: "#1A1D21" },
-              headerTintColor: "#1E90FF",
+              title: "成長",
+              tabBarIcon: ({ color, size }) => (
+                <Ionicons name="stats-chart" color={color} size={size} />
+              ),
             }}
           />
-          <Stack.Screen name="play/index" options={{ headerShown: false }} />
-          <Stack.Screen name="result/index" options={{ headerShown: false }} />
-          <Stack.Screen
-            name="(others)/others"
-            options={{ headerShown: false }}
+          <Tabs.Screen
+            name="rankings/index"
+            options={{
+              title: "ランキング",
+              tabBarIcon: ({ color, size }) => (
+                <Ionicons name="trophy" color={color} size={size} />
+              ),
+            }}
           />
-        </Stack>
+          <Tabs.Screen
+            name="(others-stack)/others"
+            options={{
+              title: "その他",
+              tabBarIcon: ({ color, size }) => (
+                <Ionicons name="settings" color={color} size={size} />
+              ),
+            }}
+          />
+        </Tabs>
       </PortalProvider>
     </TamaguiProvider>
   );
