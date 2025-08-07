@@ -1,8 +1,24 @@
+import { drizzle } from "drizzle-orm/expo-sqlite";
+import { useMigrations } from "drizzle-orm/expo-sqlite/migrator";
+import { useDrizzleStudio } from "expo-drizzle-studio-plugin";
 import { Link } from "expo-router";
+import { openDatabaseSync } from "expo-sqlite";
 import { Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import migrations from "../../drizzle/migrations";
+
+const DATABASE_NAME = "ultra-n-back.db";
+
+const databaseForStudio = openDatabaseSync(DATABASE_NAME);
+const expo = openDatabaseSync(DATABASE_NAME, {
+  enableChangeListener: true,
+});
+export const db = drizzle(expo);
 
 export const RootPage = () => {
+  useDrizzleStudio(databaseForStudio);
+  const { success, error } = useMigrations(db, migrations);
+
   return (
     <SafeAreaView className="bg-background h-full px-4 pt-14 pb-10 justify-between">
       <View className="gap-y-2">
