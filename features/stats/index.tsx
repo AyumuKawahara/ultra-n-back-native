@@ -1,7 +1,44 @@
+import { TabbarCustom } from "@/components/tabbar-custom";
+import { useState } from "react";
+import { Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { Separator } from "tamagui";
+import { NStats } from "./_components/n-stats";
+import { NumOfQuestionsStats } from "./_components/num-of-questions-stats";
+import { periodList } from "./_helpers/period-list";
+import { statsTypeList } from "./_helpers/stats-type-list";
 
 export const StatsPage = () => {
+  const [selectedStatsType, setSelectedStatsType] = useState<string>(
+    statsTypeList[0].id,
+  );
+  const [selectedPeriod, setSelectedPeriod] = useState<string>(
+    periodList[0].id,
+  );
+
   return (
-    <SafeAreaView className="bg-background h-full px-4 pt-6 gap-y-4"></SafeAreaView>
+    <SafeAreaView className="bg-background h-full px-4 pt-6 gap-y-10">
+      <View className="gap-y-4">
+        <Text className="text-white text-3xl font-bold">成長の記録</Text>
+        <TabbarCustom
+          selectedItem={selectedStatsType}
+          setSelectedItem={setSelectedStatsType}
+          items={statsTypeList}
+        />
+        <Separator style={{ marginTop: 8 }} />
+      </View>
+      {selectedStatsType === "numOfQuestions" && (
+        <NumOfQuestionsStats
+          selectedPeriod={selectedPeriod}
+          setSelectedPeriod={setSelectedPeriod}
+        />
+      )}
+      {selectedStatsType === "n" && (
+        <NStats
+          selectedPeriod={selectedPeriod}
+          setSelectedPeriod={setSelectedPeriod}
+        />
+      )}
+    </SafeAreaView>
   );
 };
