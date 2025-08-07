@@ -1,22 +1,22 @@
 export const settingsLinks = [
   {
     title: "音量設定",
-    href: "/(others-stack)/others/volume",
+    href: "/others/volume",
   },
   {
     title: "アップグレード",
-    href: "/(others-stack)/others/plans",
+    href: "/others/plans",
   },
   {
     title: "ご要望・お問い合わせ",
-    href: "/(others-stack)/others/contact",
+    href: "/others/contact",
   },
   {
     title: "Buy Me a Nut",
-    href: "/(others-stack)/others/tip",
+    href: "/others/tip",
   },
   {
     title: "外部サービス連携",
-    href: "/(others-stack)/others/external-linkage",
+    href: "/others/external-linkage",
   },
 ] as const;

@@ -1,8 +1,7 @@
-import { Ionicons } from "@expo/vector-icons";
 import { defaultConfig } from "@tamagui/config/v4";
 import { createTamagui, TamaguiProvider } from "@tamagui/core";
 import { PortalProvider } from "@tamagui/portal";
-import { Tabs } from "expo-router";
+import { Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 
 const config = createTamagui(defaultConfig);
@@ -18,54 +17,78 @@ export const RootLayout = () => {
     <TamaguiProvider config={config}>
       <PortalProvider>
         <StatusBar style="light" />
-        <Tabs
-          screenOptions={{
-            headerShown: false,
-            tabBarActiveTintColor: "#1E90FF",
-            tabBarStyle: {
-              borderTopWidth: 1,
-              borderColor: "#1E90FF",
-              backgroundColor: "#1A1D21",
-            },
-          }}
-        >
-          <Tabs.Screen
-            name="(home-stack)"
+        <Stack>
+          <Stack.Screen
+            name="(tabs)"
             options={{
               title: "ホーム",
-              tabBarIcon: ({ color, size }) => (
-                <Ionicons name="home" color={color} size={size} />
-              ),
+              headerShown: false,
             }}
           />
-          <Tabs.Screen
-            name="stats/index"
+          <Stack.Screen
+            name="setup/index"
             options={{
-              title: "成長",
-              tabBarIcon: ({ color, size }) => (
-                <Ionicons name="stats-chart" color={color} size={size} />
-              ),
+              title: "ゲーム設定",
+              headerStyle: { backgroundColor: "#1A1D21" },
+              headerTintColor: "#1E90FF",
             }}
           />
-          <Tabs.Screen
-            name="rankings/index"
+          <Stack.Screen name="play/index" options={{ headerShown: false }} />
+          <Stack.Screen name="result/index" options={{ headerShown: false }} />
+          <Stack.Screen
+            name="how-to-play/index"
             options={{
-              title: "ランキング",
-              tabBarIcon: ({ color, size }) => (
-                <Ionicons name="trophy" color={color} size={size} />
-              ),
+              title: "あそびかた",
+              headerStyle: { backgroundColor: "#1A1D21" },
+              headerTintColor: "#1E90FF",
             }}
           />
-          <Tabs.Screen
-            name="(others-stack)/others"
+          <Stack.Screen
+            name="others/volume/index"
             options={{
-              title: "その他",
-              tabBarIcon: ({ color, size }) => (
-                <Ionicons name="settings" color={color} size={size} />
-              ),
+              title: "音量設定",
+              headerStyle: { backgroundColor: "#1A1D21" },
+              headerTintColor: "#1E90FF",
+              headerBackTitle: "戻る",
             }}
           />
-        </Tabs>
+          <Stack.Screen
+            name="others/plans/index"
+            options={{
+              title: "アップグレード",
+              headerStyle: { backgroundColor: "#1A1D21" },
+              headerTintColor: "#1E90FF",
+              headerBackTitle: "戻る",
+            }}
+          />
+          <Stack.Screen
+            name="others/contact/index"
+            options={{
+              title: "ご要望・お問い合わせ",
+              headerStyle: { backgroundColor: "#1A1D21" },
+              headerTintColor: "#1E90FF",
+              headerBackTitle: "戻る",
+            }}
+          />
+          <Stack.Screen
+            name="others/tip/index"
+            options={{
+              title: "Buy Me a Nut",
+              headerStyle: { backgroundColor: "#1A1D21" },
+              headerTintColor: "#1E90FF",
+              headerBackTitle: "戻る",
+            }}
+          />
+          <Stack.Screen
+            name="others/external-linkage/index"
+            options={{
+              title: "外部サービス連携",
+              headerStyle: { backgroundColor: "#1A1D21" },
+              headerTintColor: "#1E90FF",
+              headerBackTitle: "戻る",
+            }}
+          />
+        </Stack>
       </PortalProvider>
     </TamaguiProvider>
   );
