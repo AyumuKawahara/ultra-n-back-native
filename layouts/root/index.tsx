@@ -40,6 +40,10 @@ export const RootLayout = () => {
           />
           <Stack.Screen name="play/index" options={{ headerShown: false }} />
           <Stack.Screen name="result/index" options={{ headerShown: false }} />
+          <Stack.Screen
+            name="(others)/others"
+            options={{ headerShown: false }}
+          />
         </Stack>
       </PortalProvider>
     </TamaguiProvider>
