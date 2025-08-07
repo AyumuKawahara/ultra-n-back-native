@@ -1,3 +1,5 @@
+import { playRecords } from "@/db/schema";
+import { db } from "@/features/root";
 import type { Mode } from "@/types/mode";
 import { useRouter } from "expo-router";
 import { useEffect } from "react";
@@ -45,6 +47,16 @@ export const useDisplayAnswer = ({
       const interval = setInterval(() => {
         if (numOfDisplayedQuestions >= numOfQuestions) {
           setStatus("afterPlay");
+          db.insert(playRecords)
+            .values({
+              numOfQuestions,
+              n,
+              numOfCorrectAnswers,
+              isActiveColor: selectedModes.includes("color"),
+              isActiveShape: selectedModes.includes("shape"),
+              createdAt: new Date(),
+            })
+            .run();
           router.replace({
             pathname: "/result",
             params: {
