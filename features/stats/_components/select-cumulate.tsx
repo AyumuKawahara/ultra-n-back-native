@@ -8,7 +8,7 @@ type Props = {
 export const SelectCumulate = ({ isCumulate, setIsCumulate }: Props) => {
   return (
     <View className="flex-row items-center gap-x-2">
-      <Text className="text-white text-xl font-bold">累積</Text>
+      <Text className="text-white text-xl">累積</Text>
       <Switch
         value={isCumulate}
         onValueChange={setIsCumulate}

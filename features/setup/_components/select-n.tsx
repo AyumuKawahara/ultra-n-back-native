@@ -6,7 +6,7 @@ type Props = {
 };
 
 export const SelectN = ({ n, setN }: Props) => {
-  const options = Array.from({ length: 100 }, (_, i) => ({
+  const options = Array.from({ length: 60 }, (_, i) => ({
     id: `${i + 1}`,
     label: `${i + 1}`,
   }));
@@ -16,6 +16,9 @@ export const SelectN = ({ n, setN }: Props) => {
       items={options}
       value={n.toString()}
       setValue={(value) => setN(Number(value))}
+      selectTriggerStyle={{
+        paddingVertical: 16,
+      }}
     />
   );
 };

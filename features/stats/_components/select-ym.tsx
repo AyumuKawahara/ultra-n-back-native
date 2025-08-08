@@ -1,29 +1,25 @@
 import { SelectCustom } from "@/components/select-custom";
-import { dayjsJST } from "@/lib/dayjs";
-import { useMemo } from "react";
+import { generateSelectYMOptions } from "../_helpers/generate-select-ym-options";
 
 type Props = {
-  selectedYM: string; // "YYYY-MM"
+  selectedPeriod: string;
+  selectedYM: string;
   setSelectedYM: (ym: string) => void;
 };
 
-export const SelectYM = ({ selectedYM, setSelectedYM }: Props) => {
-  const monthOptions = useMemo(() => {
-    // 過去24ヶ月分を生成（今月含む）
-    const now = dayjsJST();
-    return Array.from({ length: 24 }).map((_, idx) => {
-      const d = now.subtract(idx, "month");
-      const value = d.format("YYYY-MM");
-      const label = d.format("YYYY年M月");
-      return { id: value, label } as const;
-    });
-  }, []);
-
+export const SelectYM = ({
+  selectedPeriod,
+  selectedYM,
+  setSelectedYM,
+}: Props) => {
   return (
     <SelectCustom
-      items={monthOptions}
+      items={generateSelectYMOptions({ selectedPeriod })}
       value={selectedYM}
       setValue={setSelectedYM}
+      selectTriggerStyle={{
+        paddingVertical: 10,
+      }}
     />
   );
 };

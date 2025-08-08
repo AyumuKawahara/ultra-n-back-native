@@ -46,9 +46,15 @@ export const NumOfQuestionsStats = ({
         />
         <SelectCumulate isCumulate={isCumulate} setIsCumulate={setIsCumulate} />
       </View>
-      <View className="w-[50%]">
-        <SelectYM selectedYM={selectedYM} setSelectedYM={setSelectedYM} />
-      </View>
+      {["day", "month"].includes(selectedPeriod) && (
+        <View className="w-[50%]">
+          <SelectYM
+            selectedPeriod={selectedPeriod}
+            selectedYM={selectedYM}
+            setSelectedYM={setSelectedYM}
+          />
+        </View>
+      )}
       {/* <LineChart
         data={{
           labels: xLabels,

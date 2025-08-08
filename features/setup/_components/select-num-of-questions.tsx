@@ -19,6 +19,9 @@ export const SelectNumOfQuestions = ({
       items={options}
       value={numOfQuestions.toString()}
       setValue={(value) => setNumOfQuestions(Number(value))}
+      selectTriggerStyle={{
+        paddingVertical: 16,
+      }}
     />
   );
 };

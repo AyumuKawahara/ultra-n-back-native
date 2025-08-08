@@ -1,4 +1,5 @@
 import type { SelectItem } from "@/types/select";
+import { Ionicons } from "@expo/vector-icons";
 import { useRef, useState } from "react";
 import {
   Animated,
@@ -6,17 +7,27 @@ import {
   FlatList,
   Modal,
   Pressable,
+  type StyleProp,
   Text,
   View,
+  type ViewStyle,
 } from "react-native";
 
 type Props = {
   items: SelectItem[];
   value: string;
   setValue: (value: string) => void;
+  selectTriggerStyle?: StyleProp<ViewStyle>;
+  placeholder?: string;
 };
 
-export const SelectCustom = ({ items, value, setValue }: Props) => {
+export const SelectCustom = ({
+  items,
+  value,
+  setValue,
+  selectTriggerStyle,
+  placeholder = "選択してください",
+}: Props) => {
   const translateY = useRef(new Animated.Value(600)).current;
 
   const [isOpen, setIsOpen] = useState(false);
@@ -45,13 +56,17 @@ export const SelectCustom = ({ items, value, setValue }: Props) => {
     });
   };
 
+  const selectedLabel = items.find((item) => item.id === value)?.label;
+
   return (
     <>
       <Pressable
         onPress={openModal}
-        className="border border-white/20 rounded-lg px-3 py-3 bg-white/5"
+        className="border border-white/20 rounded-lg px-4 flex-row items-center justify-between"
+        style={[{ backgroundColor: "#2F3338" }, selectTriggerStyle]}
       >
-        <Text className="text-white text-base">{value}</Text>
+        <Text className="text-white text-lg">{selectedLabel}</Text>
+        <Ionicons name="chevron-down" size={20} color="white" />
       </Pressable>
 
       <Modal
@@ -72,7 +87,7 @@ export const SelectCustom = ({ items, value, setValue }: Props) => {
           >
             <View className="flex-row items-center justify-between mb-2">
               <Text className="text-white text-lg font-semibold">
-                年月を選択
+                {placeholder}
               </Text>
               <Pressable onPress={closeModal}>
                 <Text className="text-white/80 text-base">閉じる</Text>
@@ -89,9 +104,9 @@ export const SelectCustom = ({ items, value, setValue }: Props) => {
                     setValue(item.id);
                     closeModal();
                   }}
-                  className="py-3 px-2 rounded-lg flex-row items-center justify-between"
+                  className="py-4 px-3 rounded-lg flex-row items-center justify-between"
                 >
-                  <Text className="text-white text-base">{item.label}</Text>
+                  <Text className="text-white text-lg">{item.label}</Text>
                   {item.id === value && (
                     <Text className="text-vividBlue text-sm">選択中</Text>
                   )}

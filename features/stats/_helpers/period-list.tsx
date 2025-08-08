@@ -1,10 +1,10 @@
-export const periodList = [
+export const periodList: { id: string; label: string }[] = [
   {
     id: "day",
     label: "日",
   },
   {
-    id: "week",
+    id: "month",
     label: "月",
   },
   {
