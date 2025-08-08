@@ -1,4 +1,4 @@
-import { useBgm } from "@/providers/bgm";
+import { useBgm } from "@/providers/bgm/_hooks/use-bgm";
 import Slider from "@react-native-community/slider";
 import { useMemo } from "react";
 import { Text, View } from "react-native";
