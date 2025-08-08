@@ -18,7 +18,7 @@ export const SelectNumOfQuestions = ({
     <SelectCustom
       items={options}
       value={numOfQuestions.toString()}
-      onChange={(value) => setNumOfQuestions(Number(value))}
+      setValue={(value) => setNumOfQuestions(Number(value))}
     />
   );
 };

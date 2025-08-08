@@ -1,22 +1,44 @@
-import { useState } from "react";
-import { Dimensions, View } from "react-native";
-import { LineChart } from "react-native-chart-kit";
+import { playRecords } from "@/db/schema";
+import { db } from "@/features/root";
+import { dayjsJST } from "@/lib/dayjs";
+import type { PlayRecord } from "@/types/play-record";
+import { useEffect, useState } from "react";
+import { View } from "react-native";
 import { SelectCumulate } from "./select-cumulate";
 import { SelectPeriod } from "./select-period";
+import { SelectYM } from "./select-ym";
 
 type Props = {
   selectedPeriod: string;
   setSelectedPeriod: (period: string) => void;
+  selectedYM: string;
+  setSelectedYM: (ym: string) => void;
 };
 
 export const NumOfQuestionsStats = ({
   selectedPeriod,
   setSelectedPeriod,
+  selectedYM,
+  setSelectedYM,
 }: Props) => {
   const [isCumulate, setIsCumulate] = useState(false);
+  const [chartRawData, setChartRawData] = useState<PlayRecord[]>([]);
+
+  useEffect(() => {
+    const loadNumOfQuestionsStats = async () => {
+      const data = await db.select().from(playRecords);
+      setChartRawData(data);
+    };
+    loadNumOfQuestionsStats();
+  }, []);
+
+  const xLabels = chartRawData.map((data) =>
+    dayjsJST(data.createdAt).format("D"),
+  );
+  const datasets = chartRawData.map((data) => data.numOfQuestions);
 
   return (
-    <View>
+    <View className="gap-y-6">
       <View className="flex-row justify-between items-center">
         <SelectPeriod
           selectedPeriod={selectedPeriod}
@@ -24,19 +46,15 @@ export const NumOfQuestionsStats = ({
         />
         <SelectCumulate isCumulate={isCumulate} setIsCumulate={setIsCumulate} />
       </View>
-      <LineChart
+      <View className="w-[50%]">
+        <SelectYM selectedYM={selectedYM} setSelectedYM={setSelectedYM} />
+      </View>
+      {/* <LineChart
         data={{
-          labels: ["January", "February", "March", "April", "May", "June"],
+          labels: xLabels,
           datasets: [
             {
-              data: [
-                Math.random() * 100,
-                Math.random() * 100,
-                Math.random() * 100,
-                Math.random() * 100,
-                Math.random() * 100,
-                Math.random() * 100,
-              ],
+              data: datasets,
             },
           ],
         }}
@@ -65,7 +83,7 @@ export const NumOfQuestionsStats = ({
           transform: [{ translateX: -16 }],
         }}
         bezier
-      />
+      /> */}
     </View>
   );
 };

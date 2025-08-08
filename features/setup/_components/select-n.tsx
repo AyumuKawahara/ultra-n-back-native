@@ -15,7 +15,7 @@ export const SelectN = ({ n, setN }: Props) => {
     <SelectCustom
       items={options}
       value={n.toString()}
-      onChange={(value) => setN(Number(value))}
+      setValue={(value) => setN(Number(value))}
     />
   );
 };

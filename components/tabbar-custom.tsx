@@ -19,7 +19,7 @@ export const TabbarCustom = ({
         return (
           <TouchableOpacity
             key={item.id}
-            className="flex-1 py-1 border-x border-white"
+            className="flex-1 py-2 border-x border-white"
             style={{
               backgroundColor: isSelected ? "white" : undefined,
             }}

@@ -15,22 +15,25 @@ export const StatsPage = () => {
   const [selectedPeriod, setSelectedPeriod] = useState<string>(
     periodList[0].id,
   );
+  const [selectedYM, setSelectedYM] = useState<string>("2025-01");
 
   return (
-    <SafeAreaView className="bg-background h-full px-4 pt-6 gap-y-10">
-      <View className="gap-y-4">
+    <SafeAreaView className="bg-background h-full px-4 pt-6 gap-y-7">
+      <View className="gap-y-7">
         <Text className="text-white text-3xl font-bold">成長の記録</Text>
         <TabbarCustom
           selectedItem={selectedStatsType}
           setSelectedItem={setSelectedStatsType}
           items={statsTypeList}
         />
-        <Separator style={{ marginTop: 8 }} />
+        <Separator />
       </View>
       {selectedStatsType === "numOfQuestions" && (
         <NumOfQuestionsStats
           selectedPeriod={selectedPeriod}
           setSelectedPeriod={setSelectedPeriod}
+          selectedYM={selectedYM}
+          setSelectedYM={setSelectedYM}
         />
       )}
       {selectedStatsType === "n" && (

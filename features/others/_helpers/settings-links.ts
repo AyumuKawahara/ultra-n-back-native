@@ -8,15 +8,11 @@ export const settingsLinks = [
     href: "/others/plans",
   },
   {
-    title: "ご要望・お問い合わせ",
-    href: "/others/contact",
-  },
-  {
-    title: "Buy Me a Nut",
-    href: "/others/tip",
-  },
-  {
     title: "外部サービス連携",
     href: "/others/external-linkage",
+  },
+  {
+    title: "Buy Me a Coffee",
+    href: "/others/tip",
   },
 ] as const;

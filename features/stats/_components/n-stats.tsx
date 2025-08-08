@@ -8,7 +8,7 @@ type Props = {
 
 export const NStats = ({ selectedPeriod, setSelectedPeriod }: Props) => {
   return (
-    <View>
+    <View className="gap-y-6">
       <SelectPeriod
         selectedPeriod={selectedPeriod}
         setSelectedPeriod={setSelectedPeriod}

@@ -62,18 +62,9 @@ export const RootLayout = () => {
             }}
           />
           <Stack.Screen
-            name="others/contact/index"
-            options={{
-              title: "ご要望・お問い合わせ",
-              headerStyle: { backgroundColor: "#1A1D21" },
-              headerTintColor: "#1E90FF",
-              headerBackTitle: "戻る",
-            }}
-          />
-          <Stack.Screen
             name="others/tip/index"
             options={{
-              title: "Buy Me a Nut",
+              title: "Buy Me a Coffee",
               headerStyle: { backgroundColor: "#1A1D21" },
               headerTintColor: "#1E90FF",
               headerBackTitle: "戻る",
