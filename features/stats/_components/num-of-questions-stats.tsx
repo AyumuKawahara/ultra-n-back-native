@@ -1,9 +1,11 @@
 import { playRecords } from "@/db/schema";
 import { db } from "@/features/root";
-import { dayjsJST } from "@/lib/dayjs";
 import type { PlayRecord } from "@/types/play-record";
 import { useEffect, useState } from "react";
-import { View } from "react-native";
+import { Dimensions, View } from "react-native";
+import { LineChart } from "react-native-chart-kit";
+import { generateInitialDatasets } from "../_helpers/generate-initial-datasets";
+import { generateXLabels } from "../_helpers/generate-x-labels";
 import { SelectCumulate } from "./select-cumulate";
 import { SelectPeriod } from "./select-period";
 import { SelectYM } from "./select-ym";
@@ -32,10 +34,8 @@ export const NumOfQuestionsStats = ({
     loadNumOfQuestionsStats();
   }, []);
 
-  const xLabels = chartRawData.map((data) =>
-    dayjsJST(data.createdAt).format("D"),
-  );
-  const datasets = chartRawData.map((data) => data.numOfQuestions);
+  const xLabels = generateXLabels({ selectedPeriod, selectedYM });
+  const datasets = generateInitialDatasets({ xLabels });
 
   return (
     <View className="gap-y-6">
@@ -55,7 +55,7 @@ export const NumOfQuestionsStats = ({
           />
         </View>
       )}
-      {/* <LineChart
+      <LineChart
         data={{
           labels: xLabels,
           datasets: [
@@ -71,25 +71,25 @@ export const NumOfQuestionsStats = ({
           return label;
         }}
         width={Dimensions.get("window").width - 16}
-        height={220}
+        height={400}
         yAxisInterval={1}
-        fromZero={true}
         chartConfig={{
           backgroundGradientFrom: "#25292E",
           backgroundGradientTo: "#25292E",
           color: (opacity = 1) => `rgba(30, 144, 255, ${opacity})`,
           labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
           propsForDots: {
-            r: "3",
-            strokeWidth: "1.5",
+            r: "2",
+            strokeWidth: "1",
             stroke: "white",
           },
         }}
         style={{
           transform: [{ translateX: -16 }],
+          marginTop: 16,
         }}
         bezier
-      /> */}
+      />
     </View>
   );
 };
