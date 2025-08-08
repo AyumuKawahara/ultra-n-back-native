@@ -61,13 +61,11 @@ export const SelectCustom = ({ items, value, setValue }: Props) => {
         onRequestClose={closeModal}
       >
         <View className="flex-1 justify-end">
-          {/* 背景オーバーレイ（即時表示） */}
           <Pressable
             onPress={closeModal}
             className="absolute inset-0 bg-black/40"
           />
 
-          {/* ボトムシート本体（のみスライド表示） */}
           <Animated.View
             className="bg-[#1F2328] p-4 pt-3 rounded-t-2xl"
             style={{ paddingBottom: 24, transform: [{ translateY }] }}

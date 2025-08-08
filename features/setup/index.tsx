@@ -40,9 +40,7 @@ export const SetupPage = () => {
     <View className="bg-background h-full px-4 pt-10 pb-24 gap-y-8 justify-between">
       <View className="gap-y-10">
         <View className="flex-row items-center gap-x-4">
-          <Text className="text-white w-20 text-center font-bold text-xl">
-            問題数
-          </Text>
+          <Text className="text-white w-20 text-center text-xl">問題数</Text>
           <View className="w-[230px]">
             <SelectNumOfQuestions
               numOfQuestions={numOfQuestions}
@@ -51,17 +49,13 @@ export const SetupPage = () => {
           </View>
         </View>
         <View className="flex-row items-center gap-x-4">
-          <Text className="text-white w-20 text-center font-bold text-xl">
-            N
-          </Text>
+          <Text className="text-white w-20 text-center text-xl">N</Text>
           <View className="w-[230px]">
             <SelectN n={n} setN={setN} />
           </View>
         </View>
         <View className="flex-row gap-x-4">
-          <Text className="text-white w-20 text-center font-bold text-xl">
-            モード
-          </Text>
+          <Text className="text-white w-20 text-center text-xl">モード</Text>
           <View className="flex-1 gap-y-3">
             <SelectMode
               selectedModes={selectedModes}
@@ -73,9 +67,7 @@ export const SetupPage = () => {
                 size={20}
                 color="white"
               />
-              <Text className="text-white font-medium text-lg">
-                場所・文字は必須です
-              </Text>
+              <Text className="text-white text-lg">場所・文字は必須です</Text>
             </View>
           </View>
         </View>
