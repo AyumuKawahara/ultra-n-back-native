@@ -5,6 +5,8 @@ import type { AggregatedQuestionsRow } from "@/types/aggregated-questions-row";
 import { useEffect, useState } from "react";
 import { Dimensions, View } from "react-native";
 import { LineChart } from "react-native-chart-kit";
+import { checkDatasets } from "../_helpers/check-datasets";
+import { checkXLabels } from "../_helpers/check-x-labels";
 import { generateInitialDatasets } from "../_helpers/generate-initial-datasets";
 import { generateXLabels } from "../_helpers/generate-x-labels";
 import { updateDatasets } from "../_helpers/update-datasets";
@@ -39,8 +41,7 @@ export const NumOfQuestionsStats = ({
 
   useEffect(() => {
     const loadNumOfQuestionsStats = async () => {
-      const data =
-        await fetcher[selectedPeriod as keyof typeof fetcher](selectedYM);
+      const data = await fetcher[selectedPeriod](selectedYM);
       setChartRawData(data);
     };
     loadNumOfQuestionsStats();
@@ -50,6 +51,9 @@ export const NumOfQuestionsStats = ({
   const datasets = chartRawData.length
     ? updateDatasets({ chartRawData, selectedYM, selectedPeriod })
     : generateInitialDatasets({ xLabels });
+
+  const checkedXLabels = checkXLabels(xLabels);
+  const checkedDatasets = checkDatasets(datasets);
 
   return (
     <View className="gap-y-6">
@@ -71,10 +75,10 @@ export const NumOfQuestionsStats = ({
       )}
       <LineChart
         data={{
-          labels: xLabels,
+          labels: checkedXLabels,
           datasets: [
             {
-              data: datasets,
+              data: checkedDatasets,
             },
           ],
         }}
