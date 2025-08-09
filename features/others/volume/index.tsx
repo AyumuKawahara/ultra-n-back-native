@@ -19,7 +19,7 @@ export const SettingsVolumePage = () => {
         <Slider
           minimumValue={0}
           maximumValue={1}
-          step={0.01}
+          step={0.05}
           value={volume}
           onValueChange={setVolume}
           minimumTrackTintColor="#1E90FF"

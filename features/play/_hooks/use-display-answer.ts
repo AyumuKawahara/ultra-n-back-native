@@ -1,4 +1,4 @@
-import { playRecords } from "@/db/schema";
+import { achievements, playRecords } from "@/db/schema";
 import { db } from "@/features/root";
 import type { Mode } from "@/types/mode";
 import { useRouter } from "expo-router";
@@ -47,6 +47,20 @@ export const useDisplayAnswer = ({
       const interval = setInterval(() => {
         if (numOfDisplayedQuestions >= numOfQuestions) {
           setStatus("afterPlay");
+
+          const numOfCorrectAnswersRate =
+            (Number(numOfCorrectAnswers) / Number(numOfQuestions)) * 100;
+          if (numOfCorrectAnswersRate >= 90 && numOfQuestions >= 10) {
+            db.insert(achievements)
+              .values({
+                n,
+                isActiveColor: selectedModes.includes("color"),
+                isActiveShape: selectedModes.includes("shape"),
+                createdAt: new Date(),
+              })
+              .onConflictDoNothing({ target: achievements.n })
+              .run();
+          }
           db.insert(playRecords)
             .values({
               numOfQuestions,

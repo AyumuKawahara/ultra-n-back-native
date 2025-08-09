@@ -1,3 +1,4 @@
+import { useBgmTemporaryMute } from "@/providers/bgm/_hooks/use-bgm-temporary-mute";
 import type { Mode } from "@/types/mode";
 import { useLocalSearchParams } from "expo-router";
 import { useState } from "react";
@@ -26,6 +27,8 @@ export const PlayPage = () => {
     n: string;
     selectedModes: string;
   }>();
+
+  useBgmTemporaryMute();
 
   const selectedModes = selectedModesParam.split(",") as Mode[];
 
