@@ -9,3 +9,10 @@ export const playRecords = sqliteTable("play_records", {
   isActiveShape: integer("is_active_shape", { mode: "boolean" }).notNull(),
   createdAt: integer("created_at", { mode: "timestamp" }).notNull(),
 });
+
+export const achievements = sqliteTable("achievements", {
+  n: integer("n").primaryKey(),
+  isActiveColor: integer("is_active_color", { mode: "boolean" }).notNull(),
+  isActiveShape: integer("is_active_shape", { mode: "boolean" }).notNull(),
+  createdAt: integer("created_at", { mode: "timestamp" }).notNull(),
+});

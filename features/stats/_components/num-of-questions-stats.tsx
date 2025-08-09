@@ -3,14 +3,14 @@ import { fetchMonthlyQuestions } from "@/services/fetch-monthly-questions";
 import { fetchYearlyQuestions } from "@/services/fetch-yearly-questions";
 import type { AggregatedQuestionsRow } from "@/types/aggregated-questions-row";
 import { useEffect, useState } from "react";
-import { Dimensions, View } from "react-native";
-import { LineChart } from "react-native-chart-kit";
+import { View } from "react-native";
 import { checkDatasets } from "../_helpers/check-datasets";
 import { checkXLabels } from "../_helpers/check-x-labels";
 import { generateInitialDatasets } from "../_helpers/generate-initial-datasets";
 import { generateXLabels } from "../_helpers/generate-x-labels";
 import { updateDatasets } from "../_helpers/update-datasets";
 import type { Period } from "../_types/period";
+import { LineChartCustom } from "./line-chart-custom";
 import { SelectCumulate } from "./select-cumulate";
 import { SelectPeriod } from "./select-period";
 import { SelectYM } from "./select-ym";
@@ -78,42 +78,7 @@ export const NumOfQuestionsStats = ({
           />
         </View>
       )}
-      <LineChart
-        data={{
-          labels: checkedXLabels,
-          datasets: [
-            {
-              data: checkedDatasets,
-            },
-          ],
-        }}
-        formatXLabel={(label) => {
-          if (label === "January") {
-            return "1月";
-          }
-          return label;
-        }}
-        width={Dimensions.get("window").width - 4}
-        height={400}
-        yAxisInterval={1}
-        chartConfig={{
-          decimalPlaces: 0,
-          backgroundGradientFrom: "#25292E",
-          backgroundGradientTo: "#25292E",
-          color: (opacity = 1) => `rgba(30, 144, 255, ${opacity})`,
-          labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-          propsForDots: {
-            r: "2",
-            strokeWidth: "1",
-            stroke: "white",
-          },
-        }}
-        style={{
-          transform: [{ translateX: -24 }],
-          marginTop: 16,
-        }}
-        bezier
-      />
+      <LineChartCustom xLabels={checkedXLabels} datasets={checkedDatasets} />
     </View>
   );
 };

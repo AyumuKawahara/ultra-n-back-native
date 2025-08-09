@@ -53,6 +53,8 @@ export const StatsPage = () => {
         <NStats
           selectedPeriod={selectedPeriod}
           setSelectedPeriod={setSelectedPeriod}
+          selectedYM={selectedYM}
+          setSelectedYM={setSelectedYM}
         />
       )}
     </SafeAreaView>
