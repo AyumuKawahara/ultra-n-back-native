@@ -38,7 +38,7 @@ export const generateXLabels = ({
   }
 
   const currentYear = dayjsJST().year();
-  const boundYear = 2025;
+  const boundYear = 2024;
 
   const yearDiff = currentYear - boundYear;
 

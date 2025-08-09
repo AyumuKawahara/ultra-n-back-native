@@ -93,7 +93,7 @@ export const NumOfQuestionsStats = ({
           }
           return label;
         }}
-        width={Dimensions.get("window").width - 16}
+        width={Dimensions.get("window").width - 4}
         height={400}
         yAxisInterval={1}
         chartConfig={{
@@ -109,7 +109,7 @@ export const NumOfQuestionsStats = ({
           },
         }}
         style={{
-          transform: [{ translateX: -16 }],
+          transform: [{ translateX: -24 }],
           marginTop: 16,
         }}
         bezier

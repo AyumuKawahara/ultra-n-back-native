@@ -58,7 +58,7 @@ export const updateDatasets = ({
   }
 
   const currentYear = dayjsJST().year();
-  const boundYear = 2025;
+  const boundYear = 2024;
   const yearDiff = currentYear - boundYear;
 
   const totalByYear = new Map<string, number>(
