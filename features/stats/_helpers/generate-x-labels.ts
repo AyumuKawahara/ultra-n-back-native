@@ -1,7 +1,8 @@
 import { dayjsJST } from "@/lib/dayjs";
+import type { Period } from "../_types/period";
 
 type Props = {
-  selectedPeriod: string;
+  selectedPeriod: Period;
   selectedYM: string;
 };
 

@@ -1,8 +1,9 @@
 import { SelectCustom } from "@/components/select-custom";
 import { generateSelectYMOptions } from "../_helpers/generate-select-ym-options";
+import type { Period } from "../_types/period";
 
 type Props = {
-  selectedPeriod: string;
+  selectedPeriod: Period;
   selectedYM: string;
   setSelectedYM: (ym: string) => void;
 };

@@ -1,10 +1,11 @@
 import { TabbarCustom } from "@/components/tabbar-custom";
 import { View } from "react-native";
 import { periodList } from "../_helpers/period-list";
+import type { Period } from "../_types/period";
 
 type Props = {
-  selectedPeriod: string;
-  setSelectedPeriod: (period: string) => void;
+  selectedPeriod: Period;
+  setSelectedPeriod: (period: Period) => void;
 };
 
 export const SelectPeriod = ({ selectedPeriod, setSelectedPeriod }: Props) => {
@@ -12,7 +13,7 @@ export const SelectPeriod = ({ selectedPeriod, setSelectedPeriod }: Props) => {
     <View className="w-[60%]">
       <TabbarCustom
         selectedItem={selectedPeriod}
-        setSelectedItem={setSelectedPeriod}
+        setSelectedItem={(item) => setSelectedPeriod(item as Period)}
         items={periodList}
       />
     </View>

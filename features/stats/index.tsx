@@ -8,12 +8,13 @@ import { NumOfQuestionsStats } from "./_components/num-of-questions-stats";
 import { generateSelectYMOptions } from "./_helpers/generate-select-ym-options";
 import { periodList } from "./_helpers/period-list";
 import { statsTypeList } from "./_helpers/stats-type-list";
+import type { Period } from "./_types/period";
 
 export const StatsPage = () => {
   const [selectedStatsType, setSelectedStatsType] = useState<string>(
     statsTypeList[0].id,
   );
-  const [selectedPeriod, setSelectedPeriod] = useState<string>(
+  const [selectedPeriod, setSelectedPeriod] = useState<Period>(
     periodList[0].id,
   );
 

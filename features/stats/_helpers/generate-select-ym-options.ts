@@ -1,9 +1,10 @@
 import { dayjsJST } from "@/lib/dayjs";
 import type { SelectItem } from "@/types/select";
 import dayjs from "dayjs";
+import type { Period } from "../_types/period";
 
 type Props = {
-  selectedPeriod: string;
+  selectedPeriod: Period;
 };
 
 export const generateSelectYMOptions = ({

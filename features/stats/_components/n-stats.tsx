@@ -1,9 +1,10 @@
 import { View } from "react-native";
+import type { Period } from "../_types/period";
 import { SelectPeriod } from "./select-period";
 
 type Props = {
-  selectedPeriod: string;
-  setSelectedPeriod: (period: string) => void;
+  selectedPeriod: Period;
+  setSelectedPeriod: (period: Period) => void;
 };
 
 export const NStats = ({ selectedPeriod, setSelectedPeriod }: Props) => {

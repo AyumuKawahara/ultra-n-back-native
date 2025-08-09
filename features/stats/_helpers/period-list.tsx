@@ -1,4 +1,6 @@
-export const periodList: { id: string; label: string }[] = [
+import type { Period } from "../_types/period";
+
+export const periodList: { id: Period; label: string }[] = [
   {
     id: "day",
     label: "日",
