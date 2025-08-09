@@ -6,13 +6,24 @@ type Props = {
   chartRawData: AggregatedQuestionsRow[];
   selectedPeriod: Period;
   selectedYM: string;
+  isCumulative: boolean;
 };
 
 export const updateDatasets = ({
   chartRawData,
   selectedYM,
   selectedPeriod,
+  isCumulative,
 }: Props): number[] => {
+  const toCumulative = (arr: number[]): number[] => {
+    if (!isCumulative) return arr;
+    let runningTotal = 0;
+    return arr.map((value) => {
+      runningTotal += value;
+      return runningTotal;
+    });
+  };
+
   if (selectedPeriod === "day") {
     const startOfMonth = dayjsJST(`${selectedYM}-01`).startOf("month");
     const daysInMonth = startOfMonth.daysInMonth();
@@ -21,11 +32,13 @@ export const updateDatasets = ({
       chartRawData.map((row) => [row.label, row.total]),
     );
 
-    return Array.from({ length: daysInMonth }, (_, idx) => {
+    const daily = Array.from({ length: daysInMonth }, (_, idx) => {
       const day = idx + 1;
       const label = `${selectedYM}-${String(day).padStart(2, "0")}`;
       return totalByDate.get(label) ?? 0;
     });
+
+    return toCumulative(daily);
   }
 
   if (selectedPeriod === "month") {
@@ -35,11 +48,13 @@ export const updateDatasets = ({
       chartRawData.map((row) => [row.label, row.total]),
     );
 
-    return Array.from({ length: 12 }, (_, idx) => {
+    const monthly = Array.from({ length: 12 }, (_, idx) => {
       const month = idx + 1;
       const label = `${year}-${String(month).padStart(2, "0")}`;
       return totalByMonth.get(label) ?? 0;
     });
+
+    return toCumulative(monthly);
   }
 
   const currentYear = dayjsJST().year();
@@ -50,8 +65,10 @@ export const updateDatasets = ({
     chartRawData.map((row) => [row.label, row.total]),
   );
 
-  return Array.from({ length: yearDiff + 1 }, (_, idx) => {
+  const yearly = Array.from({ length: yearDiff + 1 }, (_, idx) => {
     const year = String(boundYear + idx);
     return totalByYear.get(year) ?? 0;
   });
+
+  return toCumulative(yearly);
 };

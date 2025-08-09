@@ -49,7 +49,12 @@ export const NumOfQuestionsStats = ({
 
   const xLabels = generateXLabels({ selectedPeriod, selectedYM });
   const datasets = chartRawData.length
-    ? updateDatasets({ chartRawData, selectedYM, selectedPeriod })
+    ? updateDatasets({
+        chartRawData,
+        selectedYM,
+        selectedPeriod,
+        isCumulative: isCumulate,
+      })
     : generateInitialDatasets({ xLabels });
 
   const checkedXLabels = checkXLabels(xLabels);
