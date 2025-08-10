@@ -26,8 +26,12 @@ export const LineChartCustom = ({ xLabels, datasets }: Props) => {
       width={Dimensions.get("window").width - 4}
       height={400}
       fromZero={true}
+      formatYLabel={(y) => {
+        const numberY = Number(y);
+        return Number.isInteger(numberY) ? String(numberY) : "";
+      }}
       chartConfig={{
-        decimalPlaces: 0,
+        decimalPlaces: 2,
         backgroundGradientFrom: "#25292E",
         backgroundGradientTo: "#25292E",
         color: (opacity = 1) => `rgba(30, 144, 255, ${opacity})`,
