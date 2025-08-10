@@ -25,7 +25,6 @@ export const LineChartCustom = ({ xLabels, datasets }: Props) => {
       }}
       width={Dimensions.get("window").width - 4}
       height={400}
-      yAxisInterval={1}
       fromZero={true}
       chartConfig={{
         decimalPlaces: 0,

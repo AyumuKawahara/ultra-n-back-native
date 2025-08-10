@@ -1,6 +1,13 @@
-import type { AggregatedQuestionsRow } from "@/types/aggregated-questions-row";
-import { useState } from "react";
-import { View } from "react-native";
+import { fetchAchievements } from "@/services/fetch-achievements";
+import type { Achievement } from "@/types/achievement";
+import { Ionicons } from "@expo/vector-icons";
+import { useEffect, useState } from "react";
+import { Text, View } from "react-native";
+import { checkDatasets } from "../_helpers/check-datasets";
+import { checkXLabels } from "../_helpers/check-x-labels";
+import { generateInitialDatasets } from "../_helpers/generate-initial-datasets";
+import { generateXLabels } from "../_helpers/generate-x-labels";
+import { updateNDatasets } from "../_helpers/update-n-datasets";
 import type { Period } from "../_types/period";
 import { LineChartCustom } from "./line-chart-custom";
 import { SelectPeriod } from "./select-period";
@@ -19,9 +26,23 @@ export const NStats = ({
   selectedYM,
   setSelectedYM,
 }: Props) => {
-  const [chartRawData, setChartRawData] = useState<AggregatedQuestionsRow[]>(
-    [],
-  );
+  const [chartRawData, setChartRawData] = useState<Achievement[]>([]);
+
+  useEffect(() => {
+    const loadAchievements = async () => {
+      const achievements = await fetchAchievements();
+      setChartRawData(achievements);
+    };
+    loadAchievements();
+  }, []);
+
+  const xLabels = generateXLabels({ selectedPeriod, selectedYM });
+  const datasets = chartRawData.length
+    ? updateNDatasets(chartRawData, selectedPeriod, selectedYM)
+    : generateInitialDatasets({ xLabels });
+
+  const checkedXLabels = checkXLabels(xLabels);
+  const checkedDatasets = checkDatasets(datasets);
 
   return (
     <View className="gap-y-6">
@@ -38,7 +59,13 @@ export const NStats = ({
           />
         </View>
       )}
-      <LineChartCustom xLabels={["1", "2", "3"]} datasets={[1, 2, 5]} />
+      <View className="flex-row items-center gap-x-1">
+        <Ionicons name="information-circle" size={20} color="white" />
+        <Text className="text-white">
+          10問以上・正答率90%以上でクリアすると記録されます。
+        </Text>
+      </View>
+      <LineChartCustom xLabels={checkedXLabels} datasets={checkedDatasets} />
     </View>
   );
 };
