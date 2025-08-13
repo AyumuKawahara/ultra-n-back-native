@@ -1,15 +1,12 @@
 import { Ionicons } from "@expo/vector-icons";
-import { Pressable, ScrollView, Text, View } from "react-native";
+import { Pressable, Text, View } from "react-native";
 import { wayToUseTip } from "./_helpers/way-to-use-tip";
 
 const TIP_UNIT_JPY = 250;
 
 export const TipPage = () => {
   return (
-    <ScrollView
-      className="bg-background flex-1"
-      contentContainerClassName="px-4 pt-6 pb-10 gap-y-6"
-    >
+    <View className="bg-background flex-1 px-4 pt-6 pb-10 gap-y-6">
       <Text className="text-white text-3xl font-bold">Buy me a Coffee</Text>
       <Text className="text-white/80 text-base">
         応援してくださる方がいらっしゃいましたら、ご支援いただけますと幸いです。
@@ -74,6 +71,6 @@ export const TipPage = () => {
       <Text className="text-white/60 text-xs">
         いつもご利用ありがとうございます。いただいたご支援は大切に活用し、より良い体験につなげてまいります。
       </Text>
-    </ScrollView>
+    </View>
   );
 };
