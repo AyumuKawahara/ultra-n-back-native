@@ -13,23 +13,17 @@ export const TipPage = () => {
       </Text>
 
       <View className="rounded-2xl p-5 gap-y-5 border border-white/10 bg-backgroundLight">
-        <View className="flex-row items-center justify-between">
-          <View className="flex-row items-center gap-x-2">
-            <Ionicons name="heart" size={20} color="#FF4C4C" />
-            <Text className="text-white text-xl font-bold">
-              1口 {TIP_UNIT_JPY} 円
-            </Text>
-          </View>
-          <View className="bg-vividBlue/20 border border-vividBlue rounded-md px-2 py-1">
-            <Text className="text-vividBlue text-xs font-bold">TIP</Text>
-          </View>
+        <View className="flex-row items-center gap-x-2">
+          <Ionicons name="heart" size={20} color="#FF4C4C" />
+          <Text className="text-white text-xl font-bold">
+            1口 {TIP_UNIT_JPY} 円
+          </Text>
         </View>
 
         <View className="h-[1px] bg-white/10" />
 
         <View className="flex-row items-end justify-between">
           <View>
-            <Text className="text-white/80">合計</Text>
             <View className="flex-row items-baseline gap-x-1">
               <Text className="text-vividBlue text-3xl font-extrabold">
                 {TIP_UNIT_JPY}
@@ -47,7 +41,7 @@ export const TipPage = () => {
           style={({ pressed }) => [
             { transform: [{ scale: pressed ? 0.98 : 1 }] },
           ]}
-          className="mt-2 rounded-xl bg-vividBlue items-center justify-center px-4 py-3"
+          className="mt-2 rounded-xl bg-vividBlue items-center justify-center py-4"
         >
           <Text className="text-white font-bold">1口で応援する</Text>
         </Pressable>
@@ -56,7 +50,7 @@ export const TipPage = () => {
       <View className="rounded-2xl p-5 gap-y-4 border border-white/10 bg-backgroundLight">
         <View className="flex-row items-center gap-x-2">
           <Ionicons name="information-circle" size={20} color="#1E90FF" />
-          <Text className="text-white text-base font-bold">Tipの使い道</Text>
+          <Text className="text-white text-base font-bold">使い道</Text>
         </View>
         <View className="gap-y-2">
           {wayToUseTip.map((text) => (
