@@ -7,10 +7,10 @@ export const settingsLinks = [
     title: "アップグレード",
     href: "/others/plans",
   },
-  {
-    title: "外部サービス連携",
-    href: "/others/external-linkage",
-  },
+  // {
+  //   title: "外部サービス連携",
+  //   href: "/others/external-linkage",
+  // },
   {
     title: "Buy Me a Coffee",
     href: "/others/tip",

@@ -7,7 +7,7 @@ export const ExternalLinkagePage = () => {
       <Text className="text-white text-3xl font-bold">外部サービス連携</Text>
       <View className="flex-row items-center gap-x-2">
         <Ionicons name="information-circle" size={24} color="white" />
-        <Text className="text-white text-lg font-bold flex-1">
+        <Text className="text-white text-lg flex-1">
           外部サービスとご連携いただくことで、ランキングに参加できるようになります。
         </Text>
       </View>

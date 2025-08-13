@@ -33,7 +33,7 @@ export const TabsLayout = () => {
           ),
         }}
       />
-      <Tabs.Screen
+      {/* <Tabs.Screen
         name="rankings/index"
         options={{
           title: "ランキング",
@@ -41,7 +41,7 @@ export const TabsLayout = () => {
             <Ionicons name="trophy" color={color} size={size} />
           ),
         }}
-      />
+      /> */}
       <Tabs.Screen
         name="others/index"
         options={{
