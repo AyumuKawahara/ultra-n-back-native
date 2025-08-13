@@ -7,6 +7,7 @@ import {
   useState,
   type ReactNode,
 } from "react";
+import { VOLUME_STORAGE_KEY } from "./_const/storage-key";
 import { BgmContext, type BgmContextValue } from "./_context/index";
 import { updatePlayback } from "./_helpers/update-playback";
 import { useSavedVolume } from "./_hooks/use-saved-volume";
@@ -43,7 +44,11 @@ export const BgmProvider = ({ children }: Props) => {
       }
     };
   }, []);
-  useSavedVolume({ volumeState, setVolumeState });
+  useSavedVolume({
+    volumeState,
+    setVolumeState,
+    storageKey: VOLUME_STORAGE_KEY,
+  });
   useEffect(() => {
     updatePlayback({ playerRef, volumeState, isTemporarilyMuted });
   }, [volumeState, isTemporarilyMuted]);

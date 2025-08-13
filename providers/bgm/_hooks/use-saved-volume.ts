@@ -1,26 +1,28 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useEffect } from "react";
-import { VOLUME_STORAGE_KEY } from "../_const/storage-key";
 
 type Props = {
   volumeState: number;
   setVolumeState: (volume: number) => void;
+  storageKey: string;
 };
 
-export const useSavedVolume = ({ volumeState, setVolumeState }: Props) => {
+export const useSavedVolume = ({
+  volumeState,
+  setVolumeState,
+  storageKey,
+}: Props) => {
   useEffect(() => {
     const setStoredVolume = async () => {
-      const savedVolume = await AsyncStorage.getItem(VOLUME_STORAGE_KEY);
+      const savedVolume = await AsyncStorage.getItem(storageKey);
       if (savedVolume != null)
         setVolumeState(Math.min(1, Math.max(0, Number(savedVolume))));
     };
 
     setStoredVolume().catch(() => {});
-  }, [setVolumeState]);
+  }, [setVolumeState, storageKey]);
 
   useEffect(() => {
-    AsyncStorage.setItem(VOLUME_STORAGE_KEY, String(volumeState)).catch(
-      () => {},
-    );
-  }, [volumeState]);
+    AsyncStorage.setItem(storageKey, String(volumeState)).catch(() => {});
+  }, [volumeState, storageKey]);
 };
