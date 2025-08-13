@@ -36,7 +36,10 @@ export const RootLayout = () => {
               }}
             />
             <Stack.Screen name="play/index" options={{ headerShown: false }} />
-            <Stack.Screen name="result/index" options={{ headerShown: false }} />
+            <Stack.Screen
+              name="result/index"
+              options={{ headerShown: false }}
+            />
             <Stack.Screen
               name="how-to-play/index"
               options={{
@@ -72,7 +75,7 @@ export const RootLayout = () => {
                 headerBackTitle: "戻る",
               }}
             />
-            <Stack.Screen
+            {/* <Stack.Screen
               name="others/external-linkage/index"
               options={{
                 title: "外部サービス連携",
@@ -80,7 +83,7 @@ export const RootLayout = () => {
                 headerTintColor: "#1E90FF",
                 headerBackTitle: "戻る",
               }}
-            />
+            /> */}
           </Stack>
         </BgmProvider>
       </PortalProvider>
