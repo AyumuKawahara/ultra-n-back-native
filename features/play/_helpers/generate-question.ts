@@ -1,10 +1,11 @@
 import type { Mode } from "@/types/mode";
+import type { Question } from "../_types/question";
 import { generateRandomAlphabet } from "./_helpers/generate-random-alphabet";
 import { generateRandomColor } from "./_helpers/generate-random-color";
 import { generateRandomIndex } from "./_helpers/generate-random-index";
 import { generateRandomShape } from "./_helpers/generate-random-shape";
 
-export const generateQuestion = (selectedModes: Mode[]) => {
+export const generateQuestion = (selectedModes: Mode[]): Question => {
   const isActiveColor = selectedModes.includes("color");
   const isActiveShape = selectedModes.includes("shape");
 
