@@ -66,15 +66,6 @@ export const SettingsVolumePage = () => {
           thumbTintColor="#2ECC71"
         />
       </View>
-
-      <View className="rounded-2xl p-4 border border-white/10 bg-backgroundLight">
-        <View className="flex-row items-center gap-x-2">
-          <Ionicons name="information-circle" size={18} color="#1E90FF" />
-          <Text className="text-white/80 text-sm">
-            BGMと効果音のバランスはお好みに合わせて調整できます。
-          </Text>
-        </View>
-      </View>
     </ScrollView>
   );
 };
