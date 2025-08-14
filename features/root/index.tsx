@@ -30,14 +30,14 @@ export const RootPage = () => {
       <View className="gap-y-4">
         <Link href="/setup" asChild>
           <TouchableOpacity className="border border-vividBlue rounded-xl py-7 bg-backgroundLight">
-            <Text className="font-extrabold text-2xl text-center text-vividBlue">
+            <Text className="font-bold text-2xl text-center text-vividBlue">
               プレイする
             </Text>
           </TouchableOpacity>
         </Link>
         <Link href="/how-to-play" asChild>
           <TouchableOpacity className="border border-vividBlue rounded-xl py-7 bg-backgroundLight">
-            <Text className="font-extrabold text-2xl text-center text-vividBlue">
+            <Text className="font-bold text-2xl text-center text-vividBlue">
               あそびかた
             </Text>
           </TouchableOpacity>
