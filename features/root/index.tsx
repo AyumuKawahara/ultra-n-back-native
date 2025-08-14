@@ -26,30 +26,32 @@ export const RootPage = () => {
   }
 
   return (
-    <SafeAreaView className="bg-background h-full px-4 pt-14 pb-10 justify-between">
+    <SafeAreaView className="bg-background h-full px-4 pt-14 justify-between">
       <View className="gap-y-2">
         <Text className="text-white text-center text-7xl font-bold">Ultra</Text>
         <Text className="text-white text-center text-7xl font-bold">
           N Back
         </Text>
       </View>
-      <View className="gap-y-4">
-        <Link href="/setup" asChild>
-          <TouchableOpacity className="border border-vividBlue rounded-xl py-7 bg-backgroundLight">
-            <Text className="font-bold text-2xl text-center text-vividBlue">
-              プレイする
-            </Text>
-          </TouchableOpacity>
-        </Link>
-        <Link href="/how-to-play" asChild>
-          <TouchableOpacity className="border border-vividBlue rounded-xl py-7 bg-backgroundLight">
-            <Text className="font-bold text-2xl text-center text-vividBlue">
-              あそびかた
-            </Text>
-          </TouchableOpacity>
-        </Link>
+      <View className="gap-y-10">
+        <View className="gap-y-4">
+          <Link href="/setup" asChild>
+            <TouchableOpacity className="border border-vividBlue rounded-xl py-7 bg-backgroundLight">
+              <Text className="font-bold text-2xl text-center text-vividBlue">
+                プレイする
+              </Text>
+            </TouchableOpacity>
+          </Link>
+          <Link href="/how-to-play" asChild>
+            <TouchableOpacity className="border border-vividBlue rounded-xl py-7 bg-backgroundLight">
+              <Text className="font-bold text-2xl text-center text-vividBlue">
+                あそびかた
+              </Text>
+            </TouchableOpacity>
+          </Link>
+        </View>
+        <BannerAdCustom />
       </View>
-      <BannerAdCustom />
     </SafeAreaView>
   );
 };

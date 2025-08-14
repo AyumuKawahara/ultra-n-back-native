@@ -1,5 +1,5 @@
-import { requestTrackingPermissionsAsync } from "expo-tracking-transparency";
 import { useEffect } from "react";
+import { View } from "react-native";
 import mobileAds, {
   BannerAd,
   BannerAdSize,
@@ -13,18 +13,15 @@ const adUnitId = __DEV__
 export const BannerAdCustom = () => {
   useEffect(() => {
     mobileAds().initialize();
-    (async () => {
-      try {
-        await requestTrackingPermissionsAsync();
-      } catch {}
-    })();
   }, []);
 
   return (
-    <BannerAd
-      unitId={adUnitId}
-      size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
-      onAdFailedToLoad={(e) => console.log("Ad load error:", e)}
-    />
+    <View className="items-center">
+      <BannerAd
+        unitId={adUnitId}
+        size={BannerAdSize.BANNER}
+        onAdFailedToLoad={(e) => console.log("Ad load error:", e)}
+      />
+    </View>
   );
 };
