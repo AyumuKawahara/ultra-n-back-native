@@ -60,10 +60,8 @@ export const ResultPage = () => {
   };
 
   return (
-    <SafeAreaView className="bg-background h-full px-4 pt-6 pb-12 justify-between">
+    <SafeAreaView className="bg-background h-full px-4 pt-10 pb-12 justify-between">
       <View className="gap-y-7">
-        <Text className="text-white text-4xl font-bold">プレイ結果</Text>
-
         <View className="rounded-2xl px-5 py-6 gap-y-6 border border-white/10 bg-backgroundLight">
           <View className="items-center gap-y-2">
             <Ionicons name="trophy" size={28} color={evaluationColor} />
@@ -155,7 +153,7 @@ export const ResultPage = () => {
         <ShareLinks />
       </View>
 
-      <View className="gap-y-3">
+      <View className="gap-y-4">
         <Pressable
           onPress={handleReplay}
           style={({ pressed }) => [
