@@ -7,26 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		042C120563A1F6FA9EFDFC7B /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 5D4940A93C02EB93E7D81BD7 /* PrivacyInfo.xcprivacy */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
-		1AA0B9E76A6760B3384C3622 /* libPods-ultranbacknative.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D1FFFAF5454E7C3ED132ACF /* libPods-ultranbacknative.a */; };
 		3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */; };
-		519BD93C3E094A0D51307045 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2791EE960DDA41D7A316592D /* ExpoModulesProvider.swift */; };
+		6E4C0EC6F01A890E89B5F19C /* libPods-ultranbacknative.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 49C2A9C26616641EFB05E214 /* libPods-ultranbacknative.a */; };
+		AB796B9F6B5261F191352398 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 764E520396B058587918BDB8 /* PrivacyInfo.xcprivacy */; };
 		BB2F792D24A3F905000567C9 /* Expo.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB2F792C24A3F905000567C9 /* Expo.plist */; };
+		C0E9FAE5BB480B9E45D07A88 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D5914B6770D25F7D6F278C /* ExpoModulesProvider.swift */; };
 		F11748422D0307B40044C1D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11748412D0307B40044C1D9 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0D1FFFAF5454E7C3ED132ACF /* libPods-ultranbacknative.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ultranbacknative.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07F961A680F5B00A75B9A /* ultranbacknative.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ultranbacknative.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ultranbacknative/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ultranbacknative/Info.plist; sourceTree = "<group>"; };
-		2791EE960DDA41D7A316592D /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-ultranbacknative/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
-		32F91B1F00D5EEA6481D98D2 /* Pods-ultranbacknative.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ultranbacknative.release.xcconfig"; path = "Target Support Files/Pods-ultranbacknative/Pods-ultranbacknative.release.xcconfig"; sourceTree = "<group>"; };
-		559526C764C5119BF61EE797 /* Pods-ultranbacknative.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ultranbacknative.debug.xcconfig"; path = "Target Support Files/Pods-ultranbacknative/Pods-ultranbacknative.debug.xcconfig"; sourceTree = "<group>"; };
-		5D4940A93C02EB93E7D81BD7 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = ultranbacknative/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		17D5914B6770D25F7D6F278C /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-ultranbacknative/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
+		49C2A9C26616641EFB05E214 /* libPods-ultranbacknative.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ultranbacknative.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D57DB4467925A3CA112722C /* Pods-ultranbacknative.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ultranbacknative.debug.xcconfig"; path = "Target Support Files/Pods-ultranbacknative/Pods-ultranbacknative.debug.xcconfig"; sourceTree = "<group>"; };
+		764E520396B058587918BDB8 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = ultranbacknative/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SplashScreen.storyboard; path = ultranbacknative/SplashScreen.storyboard; sourceTree = "<group>"; };
 		BB2F792C24A3F905000567C9 /* Expo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Expo.plist; sourceTree = "<group>"; };
+		D86CEEFFDA1B3970F334FED3 /* Pods-ultranbacknative.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ultranbacknative.release.xcconfig"; path = "Target Support Files/Pods-ultranbacknative/Pods-ultranbacknative.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		F11748412D0307B40044C1D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ultranbacknative/AppDelegate.swift; sourceTree = "<group>"; };
 		F11748442D0722820044C1D9 /* ultranbacknative-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "ultranbacknative-Bridging-Header.h"; path = "ultranbacknative/ultranbacknative-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -37,7 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1AA0B9E76A6760B3384C3622 /* libPods-ultranbacknative.a in Frameworks */,
+				6E4C0EC6F01A890E89B5F19C /* libPods-ultranbacknative.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,7 +53,7 @@
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */,
-				5D4940A93C02EB93E7D81BD7 /* PrivacyInfo.xcprivacy */,
+				764E520396B058587918BDB8 /* PrivacyInfo.xcprivacy */,
 			);
 			name = ultranbacknative;
 			sourceTree = "<group>";
@@ -62,15 +62,23 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				0D1FFFAF5454E7C3ED132ACF /* libPods-ultranbacknative.a */,
+				49C2A9C26616641EFB05E214 /* libPods-ultranbacknative.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		7B55457156855839FBEF2E04 /* ExpoModulesProviders */ = {
+		546C45595AB13CEBCB81C644 /* ultranbacknative */ = {
 			isa = PBXGroup;
 			children = (
-				930986F5786C1004E02DC34F /* ultranbacknative */,
+				17D5914B6770D25F7D6F278C /* ExpoModulesProvider.swift */,
+			);
+			name = ultranbacknative;
+			sourceTree = "<group>";
+		};
+		6D2631186531D10EFCD80AFC /* ExpoModulesProviders */ = {
+			isa = PBXGroup;
+			children = (
+				546C45595AB13CEBCB81C644 /* ultranbacknative */,
 			);
 			name = ExpoModulesProviders;
 			sourceTree = "<group>";
@@ -89,8 +97,8 @@
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
-				9FEA552C2A5CEE28A5E3649A /* Pods */,
-				7B55457156855839FBEF2E04 /* ExpoModulesProviders */,
+				DA46EA150A20FDB53D458C1B /* Pods */,
+				6D2631186531D10EFCD80AFC /* ExpoModulesProviders */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -105,24 +113,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		930986F5786C1004E02DC34F /* ultranbacknative */ = {
-			isa = PBXGroup;
-			children = (
-				2791EE960DDA41D7A316592D /* ExpoModulesProvider.swift */,
-			);
-			name = ultranbacknative;
-			sourceTree = "<group>";
-		};
-		9FEA552C2A5CEE28A5E3649A /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				559526C764C5119BF61EE797 /* Pods-ultranbacknative.debug.xcconfig */,
-				32F91B1F00D5EEA6481D98D2 /* Pods-ultranbacknative.release.xcconfig */,
-			);
-			name = Pods;
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		BB2F792B24A3F905000567C9 /* Supporting */ = {
 			isa = PBXGroup;
 			children = (
@@ -130,6 +120,16 @@
 			);
 			name = Supporting;
 			path = ultranbacknative/Supporting;
+			sourceTree = "<group>";
+		};
+		DA46EA150A20FDB53D458C1B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4D57DB4467925A3CA112722C /* Pods-ultranbacknative.debug.xcconfig */,
+				D86CEEFFDA1B3970F334FED3 /* Pods-ultranbacknative.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,14 +140,14 @@
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "ultranbacknative" */;
 			buildPhases = (
 				08A4A3CD28434E44B6B9DE2E /* [CP] Check Pods Manifest.lock */,
-				587A7BB48C113335792A7985 /* [Expo] Configure project */,
+				B80E1389FDD1C799C4B2A22F /* [Expo] Configure project */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				800E24972A6A228C8D4807E9 /* [CP] Copy Pods Resources */,
-				9B01482D0C7293249292A4B8 /* [CP] Embed Pods Frameworks */,
-				BAD768B138E79D62838ADB5B /* [CP-User] [RNGoogleMobileAds] Configuration */,
+				BAB9B42785AA29523820F8AB /* [CP] Embed Pods Frameworks */,
+				CEFF7289DBB5B0C72654D468 /* [CP-User] [RNGoogleMobileAds] Configuration */,
 			);
 			buildRules = (
 			);
@@ -197,7 +197,7 @@
 				BB2F792D24A3F905000567C9 /* Expo.plist in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */,
-				042C120563A1F6FA9EFDFC7B /* PrivacyInfo.xcprivacy in Resources */,
+				AB796B9F6B5261F191352398 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,25 +241,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		587A7BB48C113335792A7985 /* [Expo] Configure project */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "[Expo] Configure project";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# This script configures Expo modules and generates the modules provider file.\nbash -l -c \"./Pods/Target\\ Support\\ Files/Pods-ultranbacknative/expo-configure-project.sh\"\n";
-		};
 		800E24972A6A228C8D4807E9 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -302,7 +283,26 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ultranbacknative/Pods-ultranbacknative-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9B01482D0C7293249292A4B8 /* [CP] Embed Pods Frameworks */ = {
+		B80E1389FDD1C799C4B2A22F /* [Expo] Configure project */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "[Expo] Configure project";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# This script configures Expo modules and generates the modules provider file.\nbash -l -c \"./Pods/Target\\ Support\\ Files/Pods-ultranbacknative/expo-configure-project.sh\"\n";
+		};
+		BAB9B42785AA29523820F8AB /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -320,7 +320,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ultranbacknative/Pods-ultranbacknative-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		BAD768B138E79D62838ADB5B /* [CP-User] [RNGoogleMobileAds] Configuration */ = {
+		CEFF7289DBB5B0C72654D468 /* [CP-User] [RNGoogleMobileAds] Configuration */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -341,7 +341,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F11748422D0307B40044C1D9 /* AppDelegate.swift in Sources */,
-				519BD93C3E094A0D51307045 /* ExpoModulesProvider.swift in Sources */,
+				C0E9FAE5BB480B9E45D07A88 /* ExpoModulesProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,7 +350,7 @@
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 559526C764C5119BF61EE797 /* Pods-ultranbacknative.debug.xcconfig */;
+			baseConfigurationReference = 4D57DB4467925A3CA112722C /* Pods-ultranbacknative.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -386,7 +386,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 32F91B1F00D5EEA6481D98D2 /* Pods-ultranbacknative.release.xcconfig */;
+			baseConfigurationReference = D86CEEFFDA1B3970F334FED3 /* Pods-ultranbacknative.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
