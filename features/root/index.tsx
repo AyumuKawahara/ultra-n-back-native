@@ -1,3 +1,4 @@
+import { BannerAdCustom } from "@/components/banner-ad-custom";
 import { drizzle } from "drizzle-orm/expo-sqlite";
 import { useMigrations } from "drizzle-orm/expo-sqlite/migrator";
 import { useDrizzleStudio } from "expo-drizzle-studio-plugin";
@@ -48,6 +49,7 @@ export const RootPage = () => {
           </TouchableOpacity>
         </Link>
       </View>
+      <BannerAdCustom />
     </SafeAreaView>
   );
 };
