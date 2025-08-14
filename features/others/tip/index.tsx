@@ -43,7 +43,7 @@ export const TipPage = () => {
           ]}
           className="mt-2 rounded-xl bg-vividBlue items-center justify-center py-4"
         >
-          <Text className="text-white font-bold">1口で応援する</Text>
+          <Text className="text-white font-bold">応援する</Text>
         </Pressable>
       </View>
 
@@ -63,7 +63,7 @@ export const TipPage = () => {
       </View>
 
       <Text className="text-white/60 text-xs">
-        いつもご利用ありがとうございます。いただいたご支援は大切に活用し、より良い体験につなげてまいります。
+        いつもご利用ありがとうございます。みなさまのおかげで活動を続けることができております。いただいたご支援は大切に活用し、より良い体験につなげてまいります。
       </Text>
     </View>
   );
