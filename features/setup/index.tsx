@@ -42,7 +42,7 @@ export const SetupPage = () => {
 
   return (
     <View className="bg-background flex-1 px-4 pt-10 pb-20 justify-between">
-      <View className="rounded-2xl p-5 gap-y-6 border border-white/10 bg-backgroundLight">
+      <View className="rounded-2xl px-5 py-6 gap-y-6 border border-white/10 bg-backgroundLight">
         <View className="gap-y-3">
           <View className="flex-row items-center gap-x-2">
             <Ionicons name="list" size={20} color="#1E90FF" />
