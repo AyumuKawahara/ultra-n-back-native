@@ -10,7 +10,7 @@ export const plansDetail = [
   {
     id: "pro",
     name: "Proプラン",
-    monthlyFee: 380,
+    monthlyFee: 420,
     recommendFor: "本格的にN-Back課題に取り組まれたい方",
     functions: ["よりハイレベルな【N】の設定", "色や形を記憶するモード"],
     comment:
