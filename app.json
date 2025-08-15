@@ -22,7 +22,8 @@
         "android.permission.RECORD_AUDIO",
         "android.permission.MODIFY_AUDIO_SETTINGS",
         "com.google.android.gms.permission.AD_ID"
-      ]
+      ],
+      "package": "com.all_prep.ultra_n_back"
     },
     "web": {
       "bundler": "metro",
@@ -57,6 +58,12 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "a826fda4-17fa-464e-9359-f72abcf4e9cd"
+      }
     }
   }
 }
