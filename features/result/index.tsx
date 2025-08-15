@@ -5,6 +5,7 @@ import { useLocalSearchParams, useRouter } from "expo-router";
 import { Pressable, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { ShareLinks } from "./_components/share-links";
+import { calcEvaluation } from "./_helpers/calc-evaluation";
 
 export const ResultPage = () => {
   const router = useRouter();
@@ -31,22 +32,8 @@ export const ResultPage = () => {
   const rate = Number.isFinite(numOfCorrectAnswersRate)
     ? numOfCorrectAnswersRate
     : 0;
-  const evaluationText =
-    rate >= 90
-      ? "神プレイ！"
-      : rate >= 70
-        ? "いい感じ！"
-        : rate >= 50
-          ? "次はもっといける！"
-          : "まずは慣れよう";
-  const evaluationColor =
-    rate >= 90
-      ? "#2ECC71"
-      : rate >= 70
-        ? "#1E90FF"
-        : rate >= 50
-          ? "#F1C40F"
-          : "#E74C3C";
+
+  const { text: evaluationText, color: evaluationColor } = calcEvaluation(rate);
 
   const handleReplay = () => {
     router.replace({
@@ -150,7 +137,13 @@ export const ResultPage = () => {
           </View>
         </View>
 
-        <ShareLinks />
+        <ShareLinks
+          rate={rate}
+          n={Number(n)}
+          numOfCorrectAnswers={Number(numOfCorrectAnswers)}
+          numOfQuestions={Number(numOfQuestions)}
+          selectedModes={selectedModesArray}
+        />
       </View>
 
       <View className="gap-y-4">

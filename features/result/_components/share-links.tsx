@@ -1,31 +1,85 @@
-import { Image, Text, View } from "react-native";
+import * as Linking from "expo-linking";
+import { Image, Pressable, Text, View } from "react-native";
 
 const xIcon = require("../../../assets/images/x-icon.png");
 const facebookIcon = require("../../../assets/images/facebook-icon.png");
 const lineIcon = require("../../../assets/images/line-icon.png");
 
+interface ShareLinksProps {
+  rate: number;
+  n: number;
+  numOfCorrectAnswers: number;
+  numOfQuestions: number;
+  selectedModes: string[];
+}
+
 const shareLinks = [
   {
     name: "X",
     icon: xIcon,
-    url: "https://x.com/share",
     backgroundColor: "#000000",
   },
   {
     name: "Facebook",
     icon: facebookIcon,
-    url: "https://www.facebook.com/share",
     backgroundColor: undefined,
   },
   {
     name: "Line",
     icon: lineIcon,
-    url: "https://line.me/share",
     backgroundColor: undefined,
   },
 ];
 
-export const ShareLinks = () => {
+export const ShareLinks = ({
+  rate,
+  n,
+  numOfCorrectAnswers,
+  numOfQuestions,
+  selectedModes,
+}: ShareLinksProps) => {
+  const generateShareText = () => {
+    const modeLabels = selectedModes
+      .map((mode) => {
+        const modeMap: Record<string, string> = {
+          place: "位置",
+          character: "文字",
+          color: "色",
+          shape: "形",
+        };
+        return modeMap[mode] || mode;
+      })
+      .join("・");
+
+    return `Ultra N Backで${n}バックの${modeLabels}モードをプレイ！正解率${rate.toFixed(1)}%（${numOfCorrectAnswers}/${numOfQuestions}問正解）でした！🧠✨`;
+  };
+
+  const handleShare = async (platform: string) => {
+    const shareText = generateShareText();
+
+    try {
+      let url: string;
+
+      switch (platform) {
+        case "X":
+          url = `https://x.com/intent/tweet?text=${encodeURIComponent(shareText)}`;
+          break;
+        case "Facebook":
+          url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent("https://example.com")}&quote=${encodeURIComponent(shareText)}`;
+          break;
+        case "Line":
+          url = `https://line.me/R/msg/text/?${encodeURIComponent(shareText)}`;
+          break;
+        default:
+          return;
+      }
+
+      await Linking.openURL(url);
+    } catch (error) {
+      console.error("シェアリンクを開けませんでした:", error);
+    }
+  };
+
   return (
     <View className="gap-y-2">
       <Text className="text-white text-2xl font-bold">結果をシェアする</Text>
@@ -36,21 +90,30 @@ export const ShareLinks = () => {
         }}
       >
         {shareLinks.map((shareLink) => (
-          <View
-            key={shareLink.url}
-            className="w-12 h-12 rounded-md items-center justify-center"
-            style={{
-              backgroundColor: shareLink.backgroundColor,
-            }}
+          <Pressable
+            key={shareLink.name}
+            onPress={() => handleShare(shareLink.name)}
+            style={({ pressed }) => [
+              {
+                transform: [{ scale: pressed ? 0.95 : 1 }],
+              },
+            ]}
           >
-            <Image
-              source={shareLink.icon}
+            <View
+              className="w-12 h-12 rounded-md items-center justify-center"
               style={{
-                width: shareLink.name === "X" ? 32 : 44,
-                height: shareLink.name === "X" ? 32 : 44,
+                backgroundColor: shareLink.backgroundColor,
               }}
-            />
-          </View>
+            >
+              <Image
+                source={shareLink.icon}
+                style={{
+                  width: shareLink.name === "X" ? 32 : 44,
+                  height: shareLink.name === "X" ? 32 : 44,
+                }}
+              />
+            </View>
+          </Pressable>
         ))}
       </View>
     </View>
