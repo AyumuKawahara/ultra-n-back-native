@@ -1,3 +1,4 @@
+import { BannerAdCustom } from "@/components/banner-ad-custom";
 import type { Mode } from "@/types/mode";
 import { Ionicons } from "@expo/vector-icons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -41,7 +42,7 @@ export const SetupPage = () => {
   };
 
   return (
-    <View className="bg-background flex-1 px-4 pt-10 pb-20 justify-between">
+    <View className="bg-background flex-1 px-4 pt-8 pb-8 justify-between">
       <View className="rounded-2xl px-5 py-6 gap-y-6 border border-white/10 bg-backgroundLight">
         <View className="gap-y-3">
           <View className="flex-row items-center gap-x-2">
@@ -88,15 +89,18 @@ export const SetupPage = () => {
         </View>
       </View>
 
-      <Pressable
-        onPress={handleStart}
-        style={({ pressed }) => [
-          { transform: [{ scale: pressed ? 0.98 : 1 }] },
-        ]}
-        className="rounded-2xl bg-vividBlue items-center justify-center py-7"
-      >
-        <Text className="text-white text-xl font-bold">Start</Text>
-      </Pressable>
+      <View className="gap-y-6">
+        <Pressable
+          onPress={handleStart}
+          style={({ pressed }) => [
+            { transform: [{ scale: pressed ? 0.98 : 1 }] },
+          ]}
+          className="rounded-2xl bg-vividBlue items-center justify-center py-7"
+        >
+          <Text className="text-white text-xl font-bold">Start</Text>
+        </Pressable>
+        <BannerAdCustom />
+      </View>
     </View>
   );
 };

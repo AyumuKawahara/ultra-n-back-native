@@ -4,7 +4,9 @@ import { useMigrations } from "drizzle-orm/expo-sqlite/migrator";
 import { useDrizzleStudio } from "expo-drizzle-studio-plugin";
 import { Link } from "expo-router";
 import { openDatabaseSync } from "expo-sqlite";
+import { useEffect } from "react";
 import { Text, TouchableOpacity, View } from "react-native";
+import MobileAds from "react-native-google-mobile-ads";
 import { SafeAreaView } from "react-native-safe-area-context";
 import migrations from "../../drizzle/migrations";
 import { MigrationError } from "./_components/migration-error";
@@ -21,6 +23,10 @@ export const RootPage = () => {
   useDrizzleStudio(databaseForStudio);
   const { error } = useMigrations(db, migrations);
 
+  useEffect(() => {
+    MobileAds().initialize();
+  }, []);
+
   if (error) {
     return <MigrationError />;
   }
@@ -33,7 +39,7 @@ export const RootPage = () => {
           N Back
         </Text>
       </View>
-      <View className="gap-y-10">
+      <View className="gap-y-8">
         <View className="gap-y-4">
           <Link href="/setup" asChild>
             <TouchableOpacity className="border border-vividBlue rounded-xl py-7 bg-backgroundLight">
