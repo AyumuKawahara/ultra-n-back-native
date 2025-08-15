@@ -4,6 +4,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import { Pressable, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { ButtonReplay } from "./_components/button-replay";
 import { ShareLinks } from "./_components/share-links";
 import { calcEvaluation } from "./_helpers/calc-evaluation";
 
@@ -34,17 +35,6 @@ export const ResultPage = () => {
     : 0;
 
   const { text: evaluationText, color: evaluationColor } = calcEvaluation(rate);
-
-  const handleReplay = () => {
-    router.replace({
-      pathname: "/play",
-      params: {
-        numOfQuestions: Number(numOfQuestions),
-        n: Number(n),
-        selectedModes: selectedModesArray,
-      },
-    });
-  };
 
   return (
     <SafeAreaView className="bg-background h-full px-4 pt-10 pb-12 justify-between">
@@ -147,17 +137,11 @@ export const ResultPage = () => {
       </View>
 
       <View className="gap-y-4">
-        <Pressable
-          onPress={handleReplay}
-          style={({ pressed }) => [
-            { transform: [{ scale: pressed ? 0.98 : 1 }] },
-          ]}
-          className="rounded-2xl bg-vividBlue items-center justify-center py-6"
-        >
-          <Text className="text-white text-xl font-bold">
-            同じ設定で再プレイ
-          </Text>
-        </Pressable>
+        <ButtonReplay
+          numOfQuestions={Number(numOfQuestions)}
+          n={Number(n)}
+          selectedModes={selectedModesArray}
+        />
 
         <Pressable
           onPress={() => router.replace("/")}
