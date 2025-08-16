@@ -44,6 +44,6 @@ export const generateXLabels = ({
 
   return Array.from({ length: yearDiff + 1 }, (_, idx) => {
     const year = boundYear + idx;
-    return `${year}年`;
+    return `${String(year).slice(-2)}年`;
   });
 };
