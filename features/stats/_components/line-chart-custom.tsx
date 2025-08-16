@@ -27,7 +27,7 @@ export const LineChartCustom = ({ xLabels, datasets }: Props) => {
       <LineChart
         data={data}
         noOfSections={sections}
-        height={260}
+        height={200}
         maxValue={adjustedMax}
         yAxisLabelTexts={yAxisLabelTexts}
         yAxisTextStyle={{ color: "#9CA3AF", fontSize: 10 }}

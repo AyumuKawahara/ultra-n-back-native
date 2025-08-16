@@ -1,3 +1,4 @@
+import { BannerAdCustom } from "@/components/banner-ad-custom";
 import { Ionicons } from "@expo/vector-icons";
 import { useState } from "react";
 import { Pressable, ScrollView, Text, View } from "react-native";
@@ -87,6 +88,9 @@ export const PlansPage = () => {
             </Pressable>
           );
         })}
+      </View>
+      <View className="mt-2">
+        <BannerAdCustom />
       </View>
     </ScrollView>
   );

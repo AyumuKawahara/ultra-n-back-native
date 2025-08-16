@@ -1,3 +1,4 @@
+import { BannerAdCustom } from "@/components/banner-ad-custom";
 import { Ionicons } from "@expo/vector-icons";
 import { Image } from "expo-image";
 import { ScrollView, Text, View } from "react-native";
@@ -113,6 +114,8 @@ export const HowToPlayPage = () => {
             ))}
           </View>
         </View>
+
+        <BannerAdCustom />
       </View>
     </ScrollView>
   );

@@ -1,3 +1,4 @@
+import { BannerAdCustom } from "@/components/banner-ad-custom";
 import { TabbarCustom } from "@/components/tabbar-custom";
 import { useCallback, useEffect, useState } from "react";
 import { Text, View } from "react-native";
@@ -31,32 +32,35 @@ export const StatsPage = () => {
   }, [calculateDefaultYM]);
 
   return (
-    <SafeAreaView className="bg-background h-full px-4 pt-6 gap-y-7">
+    <SafeAreaView className="bg-background h-full px-4 pt-6 justify-between">
       <View className="gap-y-7">
-        <Text className="text-white text-3xl font-bold">成長の記録</Text>
-        <TabbarCustom
-          selectedItem={selectedStatsType}
-          setSelectedItem={setSelectedStatsType}
-          items={statsTypeList}
-        />
-        <Separator />
+        <View className="gap-y-7">
+          <Text className="text-white text-3xl font-bold">成長の記録</Text>
+          <TabbarCustom
+            selectedItem={selectedStatsType}
+            setSelectedItem={setSelectedStatsType}
+            items={statsTypeList}
+          />
+          <Separator />
+        </View>
+        {selectedStatsType === "numOfQuestions" && (
+          <NumOfQuestionsStats
+            selectedPeriod={selectedPeriod}
+            setSelectedPeriod={setSelectedPeriod}
+            selectedYM={selectedYM}
+            setSelectedYM={setSelectedYM}
+          />
+        )}
+        {selectedStatsType === "n" && (
+          <NStats
+            selectedPeriod={selectedPeriod}
+            setSelectedPeriod={setSelectedPeriod}
+            selectedYM={selectedYM}
+            setSelectedYM={setSelectedYM}
+          />
+        )}
       </View>
-      {selectedStatsType === "numOfQuestions" && (
-        <NumOfQuestionsStats
-          selectedPeriod={selectedPeriod}
-          setSelectedPeriod={setSelectedPeriod}
-          selectedYM={selectedYM}
-          setSelectedYM={setSelectedYM}
-        />
-      )}
-      {selectedStatsType === "n" && (
-        <NStats
-          selectedPeriod={selectedPeriod}
-          setSelectedPeriod={setSelectedPeriod}
-          selectedYM={selectedYM}
-          setSelectedYM={setSelectedYM}
-        />
-      )}
+      <BannerAdCustom />
     </SafeAreaView>
   );
 };

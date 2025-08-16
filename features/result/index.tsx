@@ -1,3 +1,4 @@
+import { BannerAdCustom } from "@/components/banner-ad-custom";
 import { modeLabelMap } from "@/helpers/mode-label-map";
 import type { Mode } from "@/types/mode";
 import { Ionicons } from "@expo/vector-icons";
@@ -37,7 +38,7 @@ export const ResultPage = () => {
   const { text: evaluationText, color: evaluationColor } = calcEvaluation(rate);
 
   return (
-    <SafeAreaView className="bg-background h-full px-4 pt-10 pb-12 justify-between">
+    <SafeAreaView className="bg-background h-full px-4 pt-8 justify-between">
       <View className="gap-y-7">
         <View className="rounded-2xl px-5 py-6 gap-y-6 border border-white/10 bg-backgroundLight">
           <View className="items-center gap-y-2">
@@ -158,6 +159,8 @@ export const ResultPage = () => {
           </View>
         </Pressable>
       </View>
+
+      <BannerAdCustom />
     </SafeAreaView>
   );
 };
